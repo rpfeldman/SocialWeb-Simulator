@@ -1,0 +1,46 @@
+﻿<div style="
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    ">
+
+    <div style="
+        font-size: 14px;
+        color: #1e293b;
+        ">
+        <span style="font-weight: bold; color: #2563eb;">@Sender</span> dice: @Message
+    </div>
+
+    <button @onclick="OnClick" style="
+        padding: 6px 16px;
+        border: none;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #4ade80, #22c55e);
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(74, 222, 128, 0.35);
+        white-space: nowrap;
+        margin-left: 16px;
+        ">
+        Leido
+    </button>
+
+</div>
+
+
+@code 
+{
+    [Parameter] [EditorRequired]
+    public string Message { get; set; } 
+    [Parameter] [EditorRequired]
+    public string Sender { get; set; }
+    [Parameter] [EditorRequired]
+    public Action OnClick { get; set; }
+}

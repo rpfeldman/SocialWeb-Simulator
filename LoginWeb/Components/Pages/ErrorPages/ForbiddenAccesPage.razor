@@ -1,0 +1,131 @@
+﻿@page "/Error/ForbiddenAcces"
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+
+<PageTitle>Error</PageTitle>
+
+<div style="
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+    radial-gradient(circle at top, rgba(239,68,68,0.18), transparent 35%),
+    linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+    padding: 40px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    ">
+    <div style="
+        width: 100%;
+        max-width: 760px;
+        background: rgba(255,255,255,0.97);
+        border-radius: 24px;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.40);
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.20);
+        text-align: center;
+        ">
+        <!-- HEADER -->
+        <div style="
+            padding: 34px 35px 26px 35px;
+            background: linear-gradient(135deg, #dc2626, #7f1d1d);
+            color: white;
+            position: relative;
+            ">
+            <div style="
+                font-size: 58px;
+                font-weight: bold;
+                line-height: 1;
+                letter-spacing: 2px;
+                margin-bottom: 10px;
+                text-shadow: 0 4px 14px rgba(0,0,0,0.25);
+                ">
+                403
+            </div>
+
+            <div style="
+                font-size: 22px;
+                font-weight: bold;
+                letter-spacing: 0.5px;
+                ">
+                ACCESS DENIED
+            </div>
+        </div>
+
+        <!-- BODY -->
+        <div style="padding: 42px 34px 36px 34px;">
+            <div style="
+                width: 110px;
+                height: 110px;
+                margin: 0 auto 24px auto;
+                border-radius: 999px;
+                background: linear-gradient(135deg, #fee2e2, #fecaca);
+                border: 3px solid #f87171;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: inset 0 1px 0 rgba(255,255,255,0.75);
+                font-size: 52px;
+                ">
+                ⛔
+            </div>
+
+            <div style="
+                font-size: 30px;
+                font-weight: bold;
+                color: #b91c1c;
+                margin-bottom: 12px;
+                ">
+                Error 403.
+            </div>
+
+            <div style="
+                font-size: 22px;
+                font-weight: bold;
+                color: #1e293b;
+                margin-bottom: 18px;
+                ">
+                Forbidden Acces.
+            </div>
+
+            <div style="
+                max-width: 520px;
+                margin: 0 auto 30px auto;
+                padding: 18px 20px;
+                border-radius: 16px;
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+                color: #475569;
+                font-size: 15px;
+                line-height: 1.7;
+                box-sizing: border-box;
+                ">
+                No tiene permisos para acceder a esta página o recurso.
+                <br />
+                Si llegó hasta acá, el sistema le acaba de decir
+                elegantemente: <span style="font-weight: bold; color: #b91c1c;">“hasta acá llegaste, maestro”</span>.
+            </div>
+
+            <button @onclick="() => { NavigationManager.NavigateTo(URL, replace: true); }" style="
+                padding: 14px 24px;
+                border: none;
+                border-radius: 14px;
+                background: linear-gradient(135deg, #2563eb, #1d4ed8);
+                color: white;
+                font-size: 15px;
+                font-weight: bold;
+                cursor: pointer;
+                box-shadow: 0 10px 22px rgba(37,99,235,0.35);
+                ">
+                Volver
+            </button>
+        </div>
+    </div>
+</div>
+
+
+@code 
+{
+	public string URL = "/";
+}

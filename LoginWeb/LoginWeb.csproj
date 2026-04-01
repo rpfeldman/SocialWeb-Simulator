@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Components\Pages\AdminPages\**" />
+    <Content Remove="Components\Pages\AdminPages\**" />
+    <EmbeddedResource Remove="Components\Pages\AdminPages\**" />
+    <None Remove="Components\Pages\AdminPages\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RFFLDPLoginWeb components\MessageSystemRepositories\MSRepositories.csproj" />
+    <ProjectReference Include="..\RFFLDPLoginWeb components\MSServices\MSServices.csproj" />
+    <ProjectReference Include="..\RFFLDPLoginWeb components\Services\Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.5" />
+  </ItemGroup>
+
+</Project>

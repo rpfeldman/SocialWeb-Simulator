@@ -1,0 +1,38 @@
+﻿@page "/test"
+@rendermode InteractiveServer
+
+<div style="
+    background: #0a0a0a;
+    color: #39ff14;
+    font-family: 'Courier New', monospace;
+    white-space: pre;
+    padding: 30px 40px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.4;
+    box-shadow: 0 0 30px rgba(57, 255, 20, 0.15), inset 0 0 60px rgba(0,0,0,0.5);
+    border: 1px solid rgba(57, 255, 20, 0.2);
+    display: inline-block;
+    text-align: left;
+    ">
+    @Alien
+</div>
+
+@code 
+{
+    string Alien = @"
+          O
+         _|_
+   ,_.-_' _ '_-._,
+    \ (')(.)(') /
+ _,  `\_-===-_/`  ,_
+>  |----""""""""""----|  
+`""""`--/   _-@-\--`""""`
+     |===L_I===|
+      \       /
+      _\__|__/_
+
+  Thanks for being here
+  made by: RPFeldman_dev";
+}
+

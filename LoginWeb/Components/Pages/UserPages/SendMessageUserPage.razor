@@ -1,0 +1,219 @@
+﻿@page "/user/{ID:int}/sendmessage"
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+@inject LoginSecurityService LSS
+@inject MessageSenderService MSS
+@inject ViewProjectionService VPS
+
+
+<PageTitle>Enviar mensaje</PageTitle>
+
+<PageTitle>Enviar mensaje</PageTitle>
+
+<div style="
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a, #0f172a);
+    padding: 40px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    ">
+
+    <div style="
+        width: 100%;
+        max-width: 500px;
+        background: rgba(255,255,255,0.96);
+        border-radius: 22px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.30);
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.25);
+        text-align: center;
+        ">
+
+        <!-- HEADER -->
+        <div style="
+            padding: 30px 35px 20px 35px;
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            color: white;
+            ">
+            <div style="
+                font-size: 28px;
+                font-weight: bold;
+                margin-bottom: 6px;
+                ">
+                Enviar Mensaje
+            </div>
+            <div style="
+                font-size: 15px;
+                opacity: 0.9;
+                ">
+                Escribí y enviá tu mensaje
+            </div>
+        </div>
+
+        <!-- CONTENIDO -->
+        <div style="padding: 35px 30px;">
+
+            <!-- CAMPO DESTINATARIO -->
+            <div style="
+                text-align: left;
+                margin-bottom: 20px;
+                ">
+                <div style="
+                    font-weight: bold;
+                    font-size: 14px;
+                    color: #1e293b;
+                    margin-bottom: 8px;
+                    ">
+                    Destinatario
+                </div>
+                <input type="text" placeholder="Nombre de usuario" @bind="ReceiverUser" style="
+                width: 100%;
+                padding: 12px 16px;
+                border: 2px solid #e2e8f0;
+                border-radius: 12px;
+                font-size: 14px;
+                color: #0f172a;
+                background: #f8fafc;
+                box-sizing: border-box;
+                outline: none;
+                transition: border-color 0.2s;
+                " />
+            </div>
+
+            <!-- CAMPO MENSAJE -->
+            <div style="
+                text-align: left;
+                margin-bottom: 24px;
+                ">
+                <div style="
+                    font-weight: bold;
+                    font-size: 14px;
+                    color: #1e293b;
+                    margin-bottom: 8px;
+                    ">
+                    Mensaje
+                </div>
+                <input type="text" @bind="MessageText" placeholder="Escribí tu mensaje..." style="
+                width: 100%;
+                padding: 12px 16px;
+                border: 2px solid #e2e8f0;
+                border-radius: 12px;
+                font-size: 14px;
+                color: #0f172a;
+                background: #f8fafc;
+                box-sizing: border-box;
+                outline: none;
+                transition: border-color 0.2s;
+                " />
+            </div>
+
+            <!-- BOTONES -->
+            <div style="
+                display: flex;
+                gap: 14px;
+                justify-content: center;
+                margin-bottom: 20px;
+                ">
+
+                <button @onclick="SendMessage" style="
+                    flex: 1;
+                    padding: 12px;
+                    border: none;
+                    border-radius: 12px;
+                    background: linear-gradient(135deg, #4ade80, #22c55e);
+                    color: white;
+                    font-size: 14px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    box-shadow: 0 6px 14px rgba(74, 222, 128, 0.35);
+                    ">
+                    Enviar
+                </button>
+
+                <button @onclick="Navigate" style="
+                    flex: 1;
+                    padding: 12px;
+                    border: none;
+                    border-radius: 12px;
+                    background: #e2e8f0;
+                    color: #0f172a;
+                    font-size: 14px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    box-shadow: 0 6px 14px rgba(0,0,0,0.10);
+                    ">
+                    Volver
+                </button>
+
+            </div>
+
+            <!-- RESULTADO -->
+            <div style="
+                padding: 14px 20px;
+                background: #f0fdf4;
+                border: 1px solid #bbf7d0;
+                border-radius: 12px;
+                color: #166534;
+                font-size: 14px;
+                font-weight: bold;
+                min-height: 20px;
+                ">
+                @Result
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@code 
+{
+    [Parameter]
+    public int ID { get; set; }
+
+    string MessageText = string.Empty;
+    string ReceiverUser = string.Empty;
+    string Result = string.Empty;
+
+    protected override void OnAfterRender(bool FirstRender)
+    {
+        base.OnAfterRender(FirstRender);
+
+        if (FirstRender)
+        {
+            Action action = LSS.IsAuthorized ? new Action(() => { LSS.UnauthorizeLogin(); }) : new Action(() => { NavigationManager.NavigateTo("/Error/ForbiddenAcces", replace: true); });
+            action.Invoke();
+        }
+    }
+
+    void SendMessage()
+    {
+        try
+        {
+            if (VPS.GetUser(ReceiverUser) == null)
+            {
+                Result = "Usuario inexistente";
+                StateHasChanged();
+                return;
+            }
+
+            int ReceiverId = VPS.GetUser(ReceiverUser)!.ID;
+
+            Result = MSS.Send(ID, ReceiverId, MessageText) ? "Mensaje enviado con exito!" : "Error inesperado al intentar enviar el mensaje";
+        }
+        catch (Exception x)
+        {
+            Result = x.Message;
+            StateHasChanged();
+            return;
+        }
+    }
+
+    async void Navigate()
+    {
+        LSS.AuthorizeLogin();
+        NavigationManager.NavigateTo($"/User/{ID}");
+    }
+}

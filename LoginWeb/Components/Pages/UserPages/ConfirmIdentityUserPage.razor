@@ -1,0 +1,241 @@
+﻿@page "/User/{ID:int}/Confirm"
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+@inject LoginSecurityService LSS
+@inject UserAuthenticationService UAS
+@inject ViewProjectionService VPS
+
+
+<div style="
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a, #0f172a);
+    padding: 40px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    ">
+    <div style="
+        width: 100%;
+        max-width: 760px;
+        background: rgba(255,255,255,0.96);
+        border-radius: 22px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.30);
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.25);
+        ">
+        <div style="
+            padding: 30px 35px 20px 35px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            ">
+            <div style="
+                font-size: 30px;
+                font-weight: bold;
+                margin-bottom: 8px;
+                letter-spacing: 0.3px;
+                ">
+                Confirmar identidad
+            </div>
+
+            <div style="
+                font-size: 15px;
+                opacity: 0.92;
+                ">
+                Ingrese su contraseña para continuar
+            </div>
+        </div>
+
+        <div style="padding: 35px;">
+            <div style="
+                display: flex;
+                justify-content: center;
+                ">
+                <div style="
+                    width: 100%;
+                    max-width: 560px;
+                    background: #f8fafc;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 18px;
+                    padding: 28px 24px;
+                    box-shadow: inset 0 1px 0 rgba(255,255,255,0.75);
+                    ">
+                    <table style="
+                        width: 100%;
+                        border-collapse: separate;
+                        border-spacing: 0 18px;
+                        ">
+                        <tr>
+                            <td style="
+                                width: 170px;
+                                font-weight: bold;
+                                font-size: 15px;
+                                color: #1e293b;
+                                vertical-align: middle;
+                                ">
+                                Digite su contraseña:
+                            </td>
+
+                            <td>
+                                <input placeholder="contraseña" @bind="password" type="@PasswordView(ShowPassword)" style="
+                                width: 100%;
+                                padding: 14px 16px;
+                                border-radius: 12px;
+                                border: 1px solid #cbd5e1;
+                                outline: none;
+                                font-size: 15px;
+                                background-color: white;
+                                box-sizing: border-box;
+                                " />
+                            </td>
+
+                            <td style="
+                                padding-left: 12px;
+                                white-space: nowrap;
+                                color: #475569;
+                                font-size: 13px;
+                                ">
+                                <input type="checkbox" @bind="ShowPassword" style="
+                                transform: scale(1.1);
+                                margin-right: 6px;
+                                cursor: pointer;
+                                " />
+                                <span>(ver contraseña)</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div style="
+                margin-top: 30px;
+                padding-top: 24px;
+                border-top: 1px solid #e2e8f0;
+                ">
+                <table style="
+                    margin: 0 auto;
+                    border-collapse: separate;
+                    border-spacing: 14px 0;
+                    ">
+                    <tr>
+                        <td>
+                            <button @onclick="Confirm" style="
+                                padding: 13px 22px;
+                                border: none;
+                                border-radius: 12px;
+                                background: linear-gradient(135deg, #2563eb, #1d4ed8);
+                                color: white;
+                                font-size: 15px;
+                                font-weight: bold;
+                                cursor: pointer;
+                                box-shadow: 0 8px 18px rgba(37,99,235,0.35);
+                                ">
+                                Confirmar identidad
+                            </button>
+                        </td>
+
+                        <td>
+                            <button @onclick="GoBack" style="
+                                padding: 12px 18px;
+                                border: none;
+                                border-radius: 12px;
+                                background: #e2e8f0;
+                                color: #0f172a;
+                                font-size: 14px;
+                                font-weight: bold;
+                                cursor: pointer;
+                                box-shadow: 0 6px 14px rgba(0,0,0,0.10);
+                                ">
+                                Volver
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="
+                margin-top: 28px;
+                text-align: center;
+                ">
+                <div style="
+                    display: inline-block;
+                    min-width: 220px;
+                    max-width: 100%;
+                    padding: 14px 18px;
+                    border-radius: 14px;
+                    background: #f8fafc;
+                    border: 1px solid #cbd5e1;
+                    color: #0f172a;
+                    font-size: 15px;
+                    box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+                    box-sizing: border-box;
+                    ">
+                    @Result
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code 
+{
+    [Parameter]
+    public int ID { get; set; }
+
+    string Result = string.Empty;
+    string password = string.Empty;
+    bool ShowPassword = false;
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+    }
+    protected override void OnAfterRender(bool FirstRender)
+    {
+        base.OnAfterRender(FirstRender);
+
+        if (FirstRender)
+        {
+            Action action = LSS.IsAuthorized ? new Action(() => { LSS.UnauthorizeLogin(); }) : new Action(() => { NavigationManager.NavigateTo("/Error/ForbiddenAcces", replace: true); });
+            action.Invoke();
+        }
+    }
+
+    string PasswordView(bool show)
+    {
+        return show ? "text" : "password";
+    }
+
+    void GoBack()
+    {
+        LSS.AuthorizeLogin();
+        NavigationManager.NavigateTo($"/User/{ID}");
+    }
+
+    void Confirm()
+    {
+        bool succes = false;
+
+        if (!UAS.AuthenticateUser(VPS.GetUser(ID)!.Username, password))
+        {
+            Result = "No se ha podido validar la identidad, volviendo al menu...";
+            StateHasChanged();
+            succes = false;
+            Navigate(succes);
+            return;
+        }
+        Result = "Usted ha validad su identidad correctamente, redirigiendo a la interfaz de eliminacion..";
+        StateHasChanged();
+        succes = true;
+
+        Navigate(succes);
+    }
+
+    async void Navigate(bool success)
+    {
+        await Task.Delay(1300);
+        if(success){ LSS.AuthorizeLogin(); }
+        NavigationManager.NavigateTo(success ? $"/User/{ID}/Delete" : "/");
+    }
+}

@@ -1,0 +1,15 @@
+﻿@page "/Error/NotFound"
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+
+<PageTitle>Error</PageTitle>
+
+<h1 class="text-danger">Error 404.</h1>
+<h2 class="text-danger">Not found.</h2>
+<button @onclick="() => { NavigationManager.NavigateTo(URL, replace: true);}">Volver</button>
+
+
+@code
+{
+	public string URL = "/";
+}

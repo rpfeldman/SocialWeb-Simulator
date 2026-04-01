@@ -1,0 +1,332 @@
+﻿@page "/Regist"
+@rendermode InteractiveServer
+@inject NavigationManager navigationManager
+@inject UserRegistrationService URS
+
+<PageTitle>Registro</PageTitle>
+
+<div style="
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a, #0f172a);
+    padding: 40px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    ">
+    <div style="
+        width: 100%;
+        max-width: 850px;
+        background: rgba(255,255,255,0.96);
+        border-radius: 22px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.30);
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.25);
+        ">
+        <div style="
+            padding: 30px 35px 20px 35px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            ">
+            <div style="
+                font-size: 32px;
+                font-weight: bold;
+                margin-bottom: 8px;
+                letter-spacing: 0.3px;
+                ">
+                Bienvenido a la página de registro
+            </div>
+
+            <div style="
+                font-size: 15px;
+                opacity: 0.92;
+                ">
+                Creá tu cuenta completando los siguientes datos
+            </div>
+        </div>
+
+        <div style="
+            padding: 35px;
+            ">
+            <div style="
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px;
+                justify-content: space-between;
+                align-items: flex-start;
+                ">
+                <!-- FORMULARIO -->
+                <div style="
+                    flex: 1 1 420px;
+                    min-width: 320px;
+                    ">
+                    <table style="
+                        width: 100%;
+                        border-collapse: separate;
+                        border-spacing: 0 18px;
+                        ">
+                        <tr>
+                            <td style="
+                                width: 180px;
+                                font-weight: bold;
+                                font-size: 15px;
+                                color: #1e293b;
+                                vertical-align: middle;
+                                ">
+                                Nombre de usuario:
+                            </td>
+                            <td>
+                                <input placeholder="usuario" @bind="username" type="text" style="
+                                width: 100%;
+                                padding: 14px 16px;
+                                border-radius: 12px;
+                                border: 1px solid #cbd5e1;
+                                outline: none;
+                                font-size: 15px;
+                                background-color: #f8fafc;
+                                box-sizing: border-box;
+                                transition: 0.2s;
+                                " />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="
+                                font-weight: bold;
+                                font-size: 15px;
+                                color: #1e293b;
+                                vertical-align: middle;
+                                ">
+                                Contraseña:
+                            </td>
+                            <td>
+                                <input placeholder="contraseña" @bind="password[0]" type="@PasswordView(ShowPassword[0])" style="
+                                width: 100%;
+                                padding: 14px 16px;
+                                border-radius: 12px;
+                                border: 1px solid #cbd5e1;
+                                outline: none;
+                                font-size: 15px;
+                                background-color: #f8fafc;
+                                box-sizing: border-box;
+                                " />
+                            </td>
+                            <td style="
+                                padding-left: 12px;
+                                white-space: nowrap;
+                                color: #475569;
+                                font-size: 13px;
+                                ">
+                                <input type="checkbox" @bind="ShowPassword[0]" style="
+                                transform: scale(1.1);
+                                margin-right: 6px;
+                                cursor: pointer;
+                                " />
+                                <span>(ver contraseña)</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="
+                                font-weight: bold;
+                                font-size: 15px;
+                                color: #1e293b;
+                                vertical-align: middle;
+                                ">
+                                Repetir contraseña:
+                            </td>
+                            <td>
+                                <input placeholder="contraseña" @bind="password[1]" type="@PasswordView(ShowPassword[1])" style="
+                                width: 100%;
+                                padding: 14px 16px;
+                                border-radius: 12px;
+                                border: 1px solid #cbd5e1;
+                                outline: none;
+                                font-size: 15px;
+                                background-color: #f8fafc;
+                                box-sizing: border-box;
+                                " />
+                            </td>
+                            <td style="
+                                padding-left: 12px;
+                                white-space: nowrap;
+                                color: #475569;
+                                font-size: 13px;
+                                ">
+                                <input type="checkbox" @bind="ShowPassword[1]" style="
+                                transform: scale(1.1);
+                                margin-right: 6px;
+                                cursor: pointer;
+                                " />
+                                <span>(ver contraseña)</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- REGLAS -->
+                <div style="
+                    flex: 1 1 260px;
+                    min-width: 260px;
+                    background: linear-gradient(180deg, #eff6ff, #dbeafe);
+                    border: 1px solid #bfdbfe;
+                    border-radius: 18px;
+                    padding: 22px 20px;
+                    box-sizing: border-box;
+                    box-shadow: inset 0 1px 0 rgba(255,255,255,0.65);
+                    ">
+                    <div style="
+                        font-weight: bold;
+                        font-size: 20px;
+                        color: #1d4ed8;
+                        margin-bottom: 16px;
+                        text-align: center;
+                        ">
+                        Reglas
+                    </div>
+
+                    <div style="
+                        font-size: 15px;
+                        color: #1e293b;
+                        line-height: 1.7;
+                        ">
+                        <div style="margin-bottom: 12px;">
+                            • Ni el nombre de usuario ni la contraseña pueden ser nulos
+                        </div>
+
+                        <div style="margin-bottom: 12px;">
+                            • El nombre de usuario no puede tener ni más de 30 caracteres ni menos de 5
+                        </div>
+
+                        <div>
+                            • La contraseña no puede tener ni más de 60 caracteres ni menos de 5
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="
+                margin-top: 35px;
+                padding-top: 25px;
+                border-top: 1px solid #e2e8f0;
+                ">
+                <table style="
+                    margin: 0 auto;
+                    border-collapse: separate;
+                    border-spacing: 14px 0;
+                    ">
+                    <tr>
+                        <td>
+                            <button @onclick="() => { navigationManager.NavigateTo(URLs[0]); }" style="
+                                padding: 12px 18px;
+                                border: none;
+                                border-radius: 12px;
+                                background: #e2e8f0;
+                                color: #0f172a;
+                                font-size: 14px;
+                                font-weight: bold;
+                                cursor: pointer;
+                                box-shadow: 0 6px 14px rgba(0,0,0,0.10);
+                                transition: 0.2s;
+                                ">
+                                Ir a iniciar sesión
+                            </button>
+                        </td>
+
+                        <td>
+                            <button @onclick="Regist" style="
+                                padding: 13px 22px;
+                                border: none;
+                                border-radius: 12px;
+                                background: linear-gradient(135deg, #2563eb, #1d4ed8);
+                                color: white;
+                                font-size: 15px;
+                                font-weight: bold;
+                                cursor: pointer;
+                                box-shadow: 0 8px 18px rgba(37,99,235,0.35);
+                                transition: 0.2s;
+                                ">
+                                Registrarse
+                            </button>
+                        </td>
+
+                        <td>
+                            <button @onclick="() => { navigationManager.NavigateTo(URLs[1]); }" style="
+                                padding: 12px 18px;
+                                border: none;
+                                border-radius: 12px;
+                                background: #f1f5f9;
+                                color: #334155;
+                                font-size: 14px;
+                                font-weight: bold;
+                                cursor: pointer;
+                                box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+                                transition: 0.2s;
+                                ">
+                                Volver
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="
+                margin-top: 28px;
+                text-align: center;
+                ">
+                <div style="
+                    display: inline-block;
+                    min-width: 220px;
+                    padding: 14px 18px;
+                    border-radius: 14px;
+                    background: #f8fafc;
+                    border: 1px solid #cbd5e1;
+                    color: #0f172a;
+                    font-size: 15px;
+                    box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+                    ">
+                    @Result
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code 
+{
+	string[] URLs = { "/Login", "/" };
+
+	string username = string.Empty;
+	string Result = string.Empty;
+	string[] password = new string[2];
+	bool[] ShowPassword = new bool[2];
+
+	string PasswordView(bool show)
+	{
+		return show ? "text" : "password";
+	}
+
+	void Regist()
+	{
+		try
+		{
+			if (password[0] != password[1])
+			{
+				Result = "Las contraseñas no coinciden";
+				return;
+			}
+
+			Result = URS.RegisterUser(username, password[0]) ? "Usuario registrado con exito" : "Error al registrar el usuario";
+			username = password[0] = password[1] = string.Empty;
+
+			StateHasChanged();
+		}
+		catch (Exception x)
+		{
+			// CAMBIAR ESTO
+			Result = x.Message;
+			Console.WriteLine(x);
+		}	
+	}
+}

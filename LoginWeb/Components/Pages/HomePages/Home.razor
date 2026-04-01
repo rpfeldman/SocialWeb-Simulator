@@ -1,0 +1,112 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+
+<PageTitle>Inicio</PageTitle>
+
+<div style="
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a, #0f172a);
+    padding: 40px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    ">
+    <div style="
+        width: 100%;
+        max-width: 650px;
+        background: rgba(255,255,255,0.96);
+        border-radius: 22px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.30);
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.25);
+        text-align: center;
+        ">
+        <!-- HEADER -->
+        <div style="
+            padding: 30px 35px 20px 35px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            ">
+            <div style="
+                font-size: 30px;
+                font-weight: bold;
+                letter-spacing: 0.5px;
+                margin-bottom: 6px;
+                ">
+                SocialWeb by RPF
+            </div>
+
+            <div style="
+                font-size: 15px;
+                opacity: 0.9;
+                ">
+                Red social simple
+            </div>
+        </div>
+
+        <!-- CONTENIDO -->
+        <div style="padding: 40px 30px;">
+            <div style="
+                font-size: 22px;
+                font-weight: bold;
+                color: #0f172a;
+                margin-bottom: 25px;
+                ">
+                Bienvenido!
+            </div>
+
+            <div style="
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+                ">
+                <button @onclick="() => { NavigationManager.NavigateTo(urls[0]); }" style="
+                    padding: 14px 22px;
+                    border: none;
+                    border-radius: 12px;
+                    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+                    color: white;
+                    font-size: 15px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    box-shadow: 0 8px 18px rgba(37,99,235,0.35);
+                    ">
+                    Iniciar sesión
+                </button>
+
+                <button @onclick="() => { NavigationManager.NavigateTo(urls[1]); }" style="
+                    padding: 14px 22px;
+                    border: none;
+                    border-radius: 12px;
+                    background: #e2e8f0;
+                    color: #0f172a;
+                    font-size: 15px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    box-shadow: 0 6px 14px rgba(0,0,0,0.10);
+                    ">
+                    Registrarse
+                </button>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div style="
+            padding: 18px;
+            font-size: 13px;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            ">
+            Made by: Ramiro P Feldman - RPF
+        </div>
+    </div>
+</div>
+
+@code
+{
+	string[] urls = { "/login", "/regist" };
+}

@@ -1,0 +1,245 @@
+﻿@page "/Login"
+@rendermode InteractiveServer
+@inject NavigationManager navigationManager
+@inject UserAuthenticationService UAS
+@inject LoginSecurityService LSS
+
+<PageTitle>Inicio de sesion</PageTitle>
+
+<div style="
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a, #0f172a);
+    padding: 40px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    ">
+    <div style="
+        width: 100%;
+        max-width: 760px;
+        background: rgba(255,255,255,0.96);
+        border-radius: 22px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.30);
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.25);
+        ">
+        <div style="
+            padding: 30px 35px 20px 35px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            ">
+            <div style="
+                font-size: 32px;
+                font-weight: bold;
+                margin-bottom: 8px;
+                letter-spacing: 0.3px;
+                ">
+                Bienvenido a la página de inicio de sesión
+            </div>
+
+            <div style="
+                font-size: 15px;
+                opacity: 0.92;
+                ">
+                Ingresá tus credenciales para continuar
+            </div>
+        </div>
+
+        <div style="padding: 35px;">
+            <div style="
+                max-width: 520px;
+                margin: 0 auto;
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+                border-radius: 18px;
+                padding: 28px 24px;
+                box-shadow: inset 0 1px 0 rgba(255,255,255,0.75);
+                ">
+                <table style="
+                    width: 100%;
+                    border-collapse: separate;
+                    border-spacing: 0 18px;
+                    ">
+                    <tr>
+                        <td style="
+                            width: 170px;
+                            font-weight: bold;
+                            font-size: 15px;
+                            color: #1e293b;
+                            vertical-align: middle;
+                            ">
+                            Nombre de usuario:
+                        </td>
+
+                        <td>
+                            <input placeholder="usuario" @bind="username" type="text" style="
+                            width: 100%;
+                            padding: 14px 16px;
+                            border-radius: 12px;
+                            border: 1px solid #cbd5e1;
+                            outline: none;
+                            font-size: 15px;
+                            background-color: white;
+                            box-sizing: border-box;
+                            " />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="
+                            font-weight: bold;
+                            font-size: 15px;
+                            color: #1e293b;
+                            vertical-align: middle;
+                            ">
+                            Contraseña:
+                        </td>
+
+                        <td>
+                            <input placeholder="contraseña" @bind="password" type="@PasswordView(ShowPassword)" style="
+                            width: 100%;
+                            padding: 14px 16px;
+                            border-radius: 12px;
+                            border: 1px solid #cbd5e1;
+                            outline: none;
+                            font-size: 15px;
+                            background-color: white;
+                            box-sizing: border-box;
+                            " />
+                        </td>
+
+                        <td style="
+                            padding-left: 12px;
+                            white-space: nowrap;
+                            color: #475569;
+                            font-size: 13px;
+                            ">
+                            <input type="checkbox" @bind="ShowPassword" style="
+                            transform: scale(1.1);
+                            margin-right: 6px;
+                            cursor: pointer;
+                            " />
+                            <span>(ver contraseña)</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="
+                margin-top: 30px;
+                padding-top: 24px;
+                border-top: 1px solid #e2e8f0;
+                ">
+                <table style="
+                    margin: 0 auto;
+                    border-collapse: separate;
+                    border-spacing: 14px 0;
+                    ">
+                    <tr>
+                        <td>
+                            <button @onclick="() => { navigationManager.NavigateTo(URLs[0]); }" style="
+                                padding: 12px 18px;
+                                border: none;
+                                border-radius: 12px;
+                                background: #e2e8f0;
+                                color: #0f172a;
+                                font-size: 14px;
+                                font-weight: bold;
+                                cursor: pointer;
+                                box-shadow: 0 6px 14px rgba(0,0,0,0.10);
+                                ">
+                                Ir a registrarse
+                            </button>
+                        </td>
+
+                        <td>
+                            <button @onclick="Login" style="
+                                padding: 13px 22px;
+                                border: none;
+                                border-radius: 12px;
+                                background: linear-gradient(135deg, #2563eb, #1d4ed8);
+                                color: white;
+                                font-size: 15px;
+                                font-weight: bold;
+                                cursor: pointer;
+                                box-shadow: 0 8px 18px rgba(37,99,235,0.35);
+                                ">
+                                Iniciar sesión
+                            </button>
+                        </td>
+
+                        <td>
+                            <button @onclick="() => { navigationManager.NavigateTo(URLs[1]); }" style="
+                                padding: 12px 18px;
+                                border: none;
+                                border-radius: 12px;
+                                background: #f1f5f9;
+                                color: #334155;
+                                font-size: 14px;
+                                font-weight: bold;
+                                cursor: pointer;
+                                box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+                                ">
+                                Volver
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="
+                margin-top: 28px;
+                text-align: center;
+                ">
+                <div style="
+                    display: inline-block;
+                    min-width: 220px;
+                    max-width: 100%;
+                    padding: 14px 18px;
+                    border-radius: 14px;
+                    background: #f8fafc;
+                    border: 1px solid #cbd5e1;
+                    color: #0f172a;
+                    font-size: 15px;
+                    box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+                    box-sizing: border-box;
+                    ">
+                    @result
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code 
+{
+	string[] URLs = { "/Regist", "/" };
+
+	string username = string.Empty;
+	string password = string.Empty;
+	string result = string.Empty;
+	bool ShowPassword;
+
+	string PasswordView(bool show)
+	{
+		return show ? "text" : "password";
+	}
+
+	void Login()
+	{
+		try
+		{
+			if(!UAS.AuthenticateUser(username, password)){ result = "Usuario y/o contraseña incorrecto/a"; return; }
+			LSS.AuthorizeLogin();
+			navigationManager.NavigateTo($"/User/{UAS.UserId}");
+		}
+		catch (Exception x)
+		{
+			// CAMBIAR ESTO
+			result = x.Message;
+			Console.WriteLine(x);
+		}
+	}
+}
