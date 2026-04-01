@@ -25,14 +25,10 @@ C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\obj\Debug\net1
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\bin\Debug\net10.0\MSServices.deps.json
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\bin\Debug\net10.0\MSServices.dll
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\bin\Debug\net10.0\MSServices.pdb
-C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\bin\Debug\net10.0\Model.dll
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\bin\Debug\net10.0\MSModel.dll
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\bin\Debug\net10.0\MSRepositories.dll
-C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\bin\Debug\net10.0\Repositories.dll
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\bin\Debug\net10.0\MSRepositories.pdb
-C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\bin\Debug\net10.0\Model.pdb
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\bin\Debug\net10.0\MSModel.pdb
-C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\bin\Debug\net10.0\Repositories.pdb
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\obj\Debug\net10.0\MSServices.csproj.AssemblyReference.cache
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\obj\Debug\net10.0\MSServices.GeneratedMSBuildEditorConfig.editorconfig
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\obj\Debug\net10.0\MSServices.AssemblyInfoInputs.cache
@@ -40,3 +36,7 @@ C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\obj\Debug\net1
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\obj\Debug\net10.0\MSServices.csproj.CoreCompileInputs.cache
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\obj\Debug\net10.0\MSServices.csproj.Up2Date
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\obj\Debug\net10.0\ref\MSServices.dll
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\bin\Debug\net10.0\USModel.dll
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\bin\Debug\net10.0\USRepositories.dll
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\bin\Debug\net10.0\USModel.pdb
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSServices\bin\Debug\net10.0\USRepositories.pdb

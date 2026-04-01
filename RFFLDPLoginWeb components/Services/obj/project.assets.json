@@ -553,30 +553,30 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Model/1.0.0": {
+      "USModel/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
-          "bin/placeholder/Model.dll": {}
+          "bin/placeholder/USModel.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Model.dll": {}
+          "bin/placeholder/USModel.dll": {}
         }
       },
-      "Repositories/1.0.0": {
+      "USRepositories/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "Dapper": "2.1.72",
           "Microsoft.Data.SqlClient": "7.0.0",
           "Microsoft.EntityFrameworkCore": "10.0.5",
-          "Model": "1.0.0"
+          "USModel": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/Repositories.dll": {}
+          "bin/placeholder/USRepositories.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Repositories.dll": {}
+          "bin/placeholder/USRepositories.dll": {}
         }
       }
     }
@@ -1422,20 +1422,20 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Model/1.0.0": {
+    "USModel/1.0.0": {
       "type": "project",
-      "path": "../Model/Model.csproj",
-      "msbuildProject": "../Model/Model.csproj"
+      "path": "../Model/USModel.csproj",
+      "msbuildProject": "../Model/USModel.csproj"
     },
-    "Repositories/1.0.0": {
+    "USRepositories/1.0.0": {
       "type": "project",
-      "path": "../Repositories/Repositories.csproj",
-      "msbuildProject": "../Repositories/Repositories.csproj"
+      "path": "../Repositories/USRepositories.csproj",
+      "msbuildProject": "../Repositories/USRepositories.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "Repositories >= 1.0.0"
+      "USRepositories >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1445,9 +1445,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Services\\Services.csproj",
-      "projectName": "Services",
-      "projectPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Services\\Services.csproj",
+      "projectUniqueName": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Services\\USServices.csproj",
+      "projectName": "USServices",
+      "projectPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Services\\USServices.csproj",
       "packagesPath": "C:\\Users\\ramga\\.nuget\\packages\\",
       "outputPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Services\\obj\\",
       "projectStyle": "PackageReference",
@@ -1471,8 +1471,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\Repositories.csproj": {
-              "projectPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\Repositories.csproj"
+            "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\USRepositories.csproj": {
+              "projectPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\USRepositories.csproj"
             }
           }
         }

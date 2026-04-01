@@ -611,16 +611,6 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Model/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v10.0",
-        "compile": {
-          "bin/placeholder/Model.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Model.dll": {}
-        }
-      },
       "MSModel/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -637,7 +627,7 @@
         "dependencies": {
           "MSModel": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.5",
-          "Repositories": "1.0.0"
+          "USRepositories": "1.0.0"
         },
         "compile": {
           "bin/placeholder/MSRepositories.dll": {}
@@ -646,20 +636,30 @@
           "bin/placeholder/MSRepositories.dll": {}
         }
       },
-      "Repositories/1.0.0": {
+      "USModel/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/USModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/USModel.dll": {}
+        }
+      },
+      "USRepositories/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "Dapper": "2.1.72",
           "Microsoft.Data.SqlClient": "7.0.0",
           "Microsoft.EntityFrameworkCore": "10.0.5",
-          "Model": "1.0.0"
+          "USModel": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/Repositories.dll": {}
+          "bin/placeholder/USRepositories.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Repositories.dll": {}
+          "bin/placeholder/USRepositories.dll": {}
         }
       }
     }
@@ -1564,11 +1564,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Model/1.0.0": {
-      "type": "project",
-      "path": "../Model/Model.csproj",
-      "msbuildProject": "../Model/Model.csproj"
-    },
     "MSModel/1.0.0": {
       "type": "project",
       "path": "../MSModel/MSModel.csproj",
@@ -1579,10 +1574,15 @@
       "path": "../MessageSystemRepositories/MSRepositories.csproj",
       "msbuildProject": "../MessageSystemRepositories/MSRepositories.csproj"
     },
-    "Repositories/1.0.0": {
+    "USModel/1.0.0": {
       "type": "project",
-      "path": "../Repositories/Repositories.csproj",
-      "msbuildProject": "../Repositories/Repositories.csproj"
+      "path": "../Model/USModel.csproj",
+      "msbuildProject": "../Model/USModel.csproj"
+    },
+    "USRepositories/1.0.0": {
+      "type": "project",
+      "path": "../Repositories/USRepositories.csproj",
+      "msbuildProject": "../Repositories/USRepositories.csproj"
     }
   },
   "projectFileDependencyGroups": {

@@ -23,12 +23,8 @@ C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\bin\Debug\net10.0\MSRepositories.deps.json
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\bin\Debug\net10.0\MSRepositories.dll
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\bin\Debug\net10.0\MSRepositories.pdb
-C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\bin\Debug\net10.0\Model.dll
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\bin\Debug\net10.0\MSModel.dll
-C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\bin\Debug\net10.0\Repositories.dll
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\bin\Debug\net10.0\MSModel.pdb
-C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\bin\Debug\net10.0\Repositories.pdb
-C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\bin\Debug\net10.0\Model.pdb
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\obj\Debug\net10.0\MSRepositories.csproj.AssemblyReference.cache
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\obj\Debug\net10.0\MSRepositories.GeneratedMSBuildEditorConfig.editorconfig
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\obj\Debug\net10.0\MSRepositories.AssemblyInfoInputs.cache
@@ -36,3 +32,7 @@ C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\obj\Debug\net10.0\MSRepositories.csproj.CoreCompileInputs.cache
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\obj\Debug\net10.0\MSReposi.6CE35308.Up2Date
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\obj\Debug\net10.0\ref\MSRepositories.dll
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\bin\Debug\net10.0\USModel.dll
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\bin\Debug\net10.0\USRepositories.dll
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\bin\Debug\net10.0\USRepositories.pdb
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MessageSystemRepositories\bin\Debug\net10.0\USModel.pdb

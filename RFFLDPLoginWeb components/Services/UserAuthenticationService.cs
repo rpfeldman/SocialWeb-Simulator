@@ -4,10 +4,10 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
-using Repositories;
-using Model;
+using USRepositories;
+using USModel;
 
-namespace Services
+namespace USServices
 {
     public class UserAuthenticationService
     {

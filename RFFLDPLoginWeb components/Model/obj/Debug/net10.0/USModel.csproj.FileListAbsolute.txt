@@ -1,0 +1,11 @@
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Model\bin\Debug\net10.0\USModel.deps.json
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Model\bin\Debug\net10.0\USModel.dll
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Model\bin\Debug\net10.0\USModel.pdb
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Model\obj\Debug\net10.0\USModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Model\obj\Debug\net10.0\USModel.AssemblyInfoInputs.cache
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Model\obj\Debug\net10.0\USModel.AssemblyInfo.cs
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Model\obj\Debug\net10.0\USModel.csproj.CoreCompileInputs.cache
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Model\obj\Debug\net10.0\USModel.dll
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Model\obj\Debug\net10.0\refint\USModel.dll
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Model\obj\Debug\net10.0\USModel.pdb
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Model\obj\Debug\net10.0\ref\USModel.dll

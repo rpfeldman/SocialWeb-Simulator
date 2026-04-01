@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model;
+using USModel;
 using Microsoft.EntityFrameworkCore;
 using System.Numerics;
 using System.Reflection.Metadata;
 
-namespace Repositories
+namespace USRepositories
 {
     public class EntityFramework_UserRepository : IUserDbRepo
     {

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model;
+using USModel;
 using Microsoft.Data.SqlClient;
 using Dapper;
 using System.Dynamic;
 
-namespace Repositories
+namespace USRepositories
 {
     public class Dapper_UserRepository : IUserDbRepo
     {

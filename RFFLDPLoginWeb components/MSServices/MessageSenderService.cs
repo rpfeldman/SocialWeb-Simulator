@@ -1,7 +1,7 @@
-﻿using Model;
+﻿using USModel;
 using MSModel;
 using MSRepositories;
-using Repositories;
+using USRepositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;

@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Model\\Model.csproj",
-      "projectName": "Model",
-      "projectPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Model\\Model.csproj",
+      "projectUniqueName": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Model\\USModel.csproj",
+      "projectName": "USModel",
+      "projectPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Model\\USModel.csproj",
       "packagesPath": "C:\\Users\\ramga\\.nuget\\packages\\",
       "outputPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Model\\obj\\",
       "projectStyle": "PackageReference",

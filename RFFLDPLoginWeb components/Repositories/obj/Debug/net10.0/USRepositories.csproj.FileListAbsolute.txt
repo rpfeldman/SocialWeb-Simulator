@@ -1,0 +1,15 @@
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Repositories\bin\Debug\net10.0\USRepositories.deps.json
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Repositories\bin\Debug\net10.0\USRepositories.dll
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Repositories\bin\Debug\net10.0\USRepositories.pdb
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Repositories\bin\Debug\net10.0\USModel.dll
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Repositories\bin\Debug\net10.0\USModel.pdb
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Repositories\obj\Debug\net10.0\USRepositories.csproj.AssemblyReference.cache
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Repositories\obj\Debug\net10.0\USRepositories.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Repositories\obj\Debug\net10.0\USRepositories.AssemblyInfoInputs.cache
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Repositories\obj\Debug\net10.0\USRepositories.AssemblyInfo.cs
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Repositories\obj\Debug\net10.0\USRepositories.csproj.CoreCompileInputs.cache
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Repositories\obj\Debug\net10.0\USReposi.9C5C1040.Up2Date
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Repositories\obj\Debug\net10.0\USRepositories.dll
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Repositories\obj\Debug\net10.0\refint\USRepositories.dll
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Repositories\obj\Debug\net10.0\USRepositories.pdb
+C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\Repositories\obj\Debug\net10.0\ref\USRepositories.dll

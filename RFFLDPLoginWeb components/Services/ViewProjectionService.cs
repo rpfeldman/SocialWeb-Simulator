@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Repositories;
-using Model;
+using USRepositories;
+using USModel;
 
-namespace Services
+namespace USServices
 {
     public class ViewProjectionService 
     {

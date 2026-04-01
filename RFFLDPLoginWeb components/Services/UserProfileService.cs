@@ -1,12 +1,12 @@
-﻿using Model;
-using Repositories;
+﻿using USModel;
+using USRepositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services
+namespace USServices
 {
     public class UserProfileService : IDisposable
     {

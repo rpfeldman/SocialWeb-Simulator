@@ -5,11 +5,11 @@ VisualStudioVersion = 18.4.11612.150
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginWeb", "LoginWeb.csproj", "{90DBD311-D976-463E-9666-6BBAAFA00BEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "..\RFFLDPLoginWeb components\Services\Services.csproj", "{E6690784-C276-A244-7A7B-1D77C5DE4FC9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USServices", "..\RFFLDPLoginWeb components\Services\USServices.csproj", "{E6690784-C276-A244-7A7B-1D77C5DE4FC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "..\RFFLDPLoginWeb components\Repositories\Repositories.csproj", "{F68B1E96-890C-21AB-D4A7-7845F6328855}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USRepositories", "..\RFFLDPLoginWeb components\Repositories\USRepositories.csproj", "{F68B1E96-890C-21AB-D4A7-7845F6328855}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "..\RFFLDPLoginWeb components\Model\Model.csproj", "{244855FE-C58A-D947-36D3-FA0F61245ECA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USModel", "..\RFFLDPLoginWeb components\Model\USModel.csproj", "{244855FE-C58A-D947-36D3-FA0F61245ECA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSRepositories", "..\RFFLDPLoginWeb components\MessageSystemRepositories\MSRepositories.csproj", "{CF3A6F2C-CC74-49C1-B4FF-C6AF13B50DD3}"
 EndProject

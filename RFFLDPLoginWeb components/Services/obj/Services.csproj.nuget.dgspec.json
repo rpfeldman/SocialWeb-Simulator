@@ -344,12 +344,12 @@
         }
       }
     },
-    "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\Repositories.csproj": {
+    "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\USRepositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\Repositories.csproj",
-        "projectName": "Repositories",
-        "projectPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\USRepositories.csproj",
+        "projectName": "USRepositories",
+        "projectPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\USRepositories.csproj",
         "packagesPath": "C:\\Users\\ramga\\.nuget\\packages\\",
         "outputPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
@@ -731,8 +731,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\Repositories.csproj": {
-                "projectPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\Repositories.csproj"
+              "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\USRepositories.csproj": {
+                "projectPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\USRepositories.csproj"
               }
             }
           }

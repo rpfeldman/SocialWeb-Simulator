@@ -3,12 +3,12 @@ using LoginWeb.InnerServices;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.SqlServer;
-using Model;
+using USModel;
 using MSModel;
 using MSRepositories;
 using MSServices;
-using Repositories;
-using Services;
+using USRepositories;
+using USServices;
 using System.Reflection.Metadata.Ecma335;
 
 string ConnectionString = @"Data Source=RPFDotNet;Initial Catalog=WebLoginUserDB;Integrated Security=True;TrustServerCertificate=True;";

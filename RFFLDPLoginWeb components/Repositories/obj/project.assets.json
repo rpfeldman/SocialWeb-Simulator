@@ -553,14 +553,14 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Model/1.0.0": {
+      "USModel/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
-          "bin/placeholder/Model.dll": {}
+          "bin/placeholder/USModel.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Model.dll": {}
+          "bin/placeholder/USModel.dll": {}
         }
       }
     }
@@ -1406,10 +1406,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Model/1.0.0": {
+    "USModel/1.0.0": {
       "type": "project",
-      "path": "../Model/Model.csproj",
-      "msbuildProject": "../Model/Model.csproj"
+      "path": "../Model/USModel.csproj",
+      "msbuildProject": "../Model/USModel.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1417,7 +1417,7 @@
       "Dapper >= 2.1.72",
       "Microsoft.Data.SqlClient >= 7.0.0",
       "Microsoft.EntityFrameworkCore >= 10.0.5",
-      "Model >= 1.0.0"
+      "USModel >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1427,9 +1427,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\Repositories.csproj",
-      "projectName": "Repositories",
-      "projectPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\Repositories.csproj",
+      "projectUniqueName": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\USRepositories.csproj",
+      "projectName": "USRepositories",
+      "projectPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\USRepositories.csproj",
       "packagesPath": "C:\\Users\\ramga\\.nuget\\packages\\",
       "outputPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Repositories\\obj\\",
       "projectStyle": "PackageReference",
@@ -1453,8 +1453,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Model\\Model.csproj": {
-              "projectPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Model\\Model.csproj"
+            "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Model\\USModel.csproj": {
+              "projectPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Model\\USModel.csproj"
             }
           }
         }

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using Model;
-using Repositories;
+using USModel;
+using USRepositories;
 
-namespace Services
+namespace USServices
 {
     public class UserRegistrationService
     {

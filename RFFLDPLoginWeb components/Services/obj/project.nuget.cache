@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e8hlj2AycM0=",
+  "dgSpecHash": "56Y2dKK3I5A=",
   "success": true,
-  "projectFilePath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Services\\Services.csproj",
+  "projectFilePath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\Services\\USServices.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ramga\\.nuget\\packages\\dapper\\2.1.72\\dapper.2.1.72.nupkg.sha512",
     "C:\\Users\\ramga\\.nuget\\packages\\microsoft.bcl.cryptography\\9.0.13\\microsoft.bcl.cryptography.9.0.13.nupkg.sha512",

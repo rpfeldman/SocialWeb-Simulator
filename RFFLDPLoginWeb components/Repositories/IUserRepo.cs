@@ -4,9 +4,9 @@ using System.Linq;
 using System.Runtime.InteropServices.ObjectiveC;
 using System.Text;
 using System.Threading.Tasks;
-using Model;
+using USModel;
 
-namespace Repositories
+namespace USRepositories
 {
     public interface IUserDbRepo
     {

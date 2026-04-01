@@ -16,7 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\RFFLDPLoginWeb components\MessageSystemRepositories\MSRepositories.csproj" />
     <ProjectReference Include="..\RFFLDPLoginWeb components\MSServices\MSServices.csproj" />
-    <ProjectReference Include="..\RFFLDPLoginWeb components\Services\Services.csproj" />
+    <ProjectReference Include="..\RFFLDPLoginWeb components\Services\USServices.csproj" />
   </ItemGroup>
 
   <ItemGroup>
