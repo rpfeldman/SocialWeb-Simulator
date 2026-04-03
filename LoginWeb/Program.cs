@@ -16,10 +16,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-var ConnectionString = builder.Configuration.GetSection("ConnectionStrings").GetValue<string>("ConnectionString");
+var ConnectionString = builder.Configuration.GetSection("DataBase").GetValue<string>("ConnectionString");
+int[] UsernameCharLimits = { builder.Configuration.GetSection("DataBase").GetValue<int>("UsernameMinCharLimit"), builder.Configuration.GetSection("DataBase").GetValue<int>("UsernameMaxCharLimit") };
+int[] PasswordCharLimits = { builder.Configuration.GetSection("DataBase").GetValue<int>("PasswordMinCharLimit"), builder.Configuration.GetSection("DataBase").GetValue<int>("PasswordMaxCharLimit") };
 
 var UserDBContextOptions = new DbContextOptionsBuilder<UserDbContext>().UseSqlServer(ConnectionString).Options;
-var UserDBContext = new UserDbContext(UserDBContextOptions, new int[] { 5, 30 }, new int[] { 5, 60 });
+var UserDBContext = new UserDbContext(UserDBContextOptions, UsernameCharLimits, PasswordCharLimits);
 
 var MessageContainerContextOptions = new DbContextOptionsBuilder<MessageContainerDbContext>().UseSqlServer(ConnectionString).Options;
 var MessageContainerContext = new MessageContainerDbContext(MessageContainerContextOptions, 150);
@@ -28,7 +30,9 @@ var MessageContainerContext = new MessageContainerDbContext(MessageContainerCont
 builder.Services.AddSingleton<LoginSecurityService>(); // Servicio de seguridad de URL y logueo
 
 // Servicios que manejan el registro, inicio de sesion y manejo de usuarios
-builder.Services.AddSingleton<IUserDbRepo, EntityFramework_UserRepository>(sp => { return new EntityFramework_UserRepository(UserDBContext); });
+
+//builder.Services.AddSingleton<IUserDbRepo, EntityFramework_UserRepository>(sp => { return new EntityFramework_UserRepository(UserDBContext); });
+builder.Services.AddSingleton<IUserDbRepo,Test_UserRepository>();
 builder.Services.AddScoped<UserAuthenticationService>();
 builder.Services.AddScoped<UserRegistrationService>();
 builder.Services.AddScoped<ViewProjectionService>();
