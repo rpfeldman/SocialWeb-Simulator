@@ -11,7 +11,12 @@ using USRepositories;
 using USServices;
 using System.Reflection.Metadata.Ecma335;
 
-string ConnectionString = @"Data Source=RPFDotNet;Initial Catalog=WebLoginUserDB;Integrated Security=True;TrustServerCertificate=True;";
+var builder = WebApplication.CreateBuilder(args);
+// Add services to the container.
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents();
+
+var ConnectionString = builder.Configuration.GetSection("ConnectionStrings").GetValue<string>("ConnectionString");
 
 var UserDBContextOptions = new DbContextOptionsBuilder<UserDbContext>().UseSqlServer(ConnectionString).Options;
 var UserDBContext = new UserDbContext(UserDBContextOptions, new int[] { 5, 30 }, new int[] { 5, 60 });
@@ -19,10 +24,6 @@ var UserDBContext = new UserDbContext(UserDBContextOptions, new int[] { 5, 30 },
 var MessageContainerContextOptions = new DbContextOptionsBuilder<MessageContainerDbContext>().UseSqlServer(ConnectionString).Options;
 var MessageContainerContext = new MessageContainerDbContext(MessageContainerContextOptions, 150);
 
-var builder = WebApplication.CreateBuilder(args);
-// Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
 
 builder.Services.AddSingleton<LoginSecurityService>(); // Servicio de seguridad de URL y logueo
 

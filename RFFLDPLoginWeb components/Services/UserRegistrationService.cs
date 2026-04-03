@@ -32,7 +32,7 @@ namespace USServices
             if (Repository.Search(Username) == null) 
             {
                 Password = Password.Replace(' ', '_');
-
+                
                 return Repository.AddToDB(Username, Password);
             } // Se comprueba que el nombre de usuario no exista aun
 
