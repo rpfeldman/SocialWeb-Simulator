@@ -29,16 +29,20 @@ var MessageContainerContext = new MessageContainerDbContext(MessageContainerCont
 
 builder.Services.AddSingleton<LoginSecurityService>(); // Servicio de seguridad de URL y logueo
 
-// Servicios que manejan el registro, inicio de sesion y manejo de usuarios
 
+// Dependencias del servicio de registro, incicio de sesion y manejo de usuario
 //builder.Services.AddSingleton<IUserDbRepo, EntityFramework_UserRepository>(sp => { return new EntityFramework_UserRepository(UserDBContext); });
-builder.Services.AddSingleton<IUserDbRepo,Test_UserRepository>();
+//builder.Services.AddSingleton<IUserDbRepo,Test_UserRepository>();
+builder.Services.AddScoped<IUserDbRepo, Dapper_UserRepository>(sp => { return new Dapper_UserRepository(ConnectionString, "Usuarios", UsernameCharLimits, PasswordCharLimits); });
+
+builder.Services.AddScoped<IMessageContainer<Message, int>, EF_MessageContainer>(sp => { return new EF_MessageContainer(MessageContainerContext); });
+
+// Servicios que manejan el registro, inicio de sesion y manejo de usuarios
 builder.Services.AddScoped<UserAuthenticationService>();
 builder.Services.AddScoped<UserRegistrationService>();
 builder.Services.AddScoped<ViewProjectionService>();
 
 // Servicios que manejan el sistema de mensajeria
-builder.Services.AddScoped<IMessageContainer<Message, int>, EF_MessageContainer>(sp => { return new EF_MessageContainer(MessageContainerContext); });
 builder.Services.AddScoped<MessageSenderService>();
 
 
