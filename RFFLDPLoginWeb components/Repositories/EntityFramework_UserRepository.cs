@@ -19,6 +19,10 @@ namespace USRepositories
             _context = context;
         }
 
+        /// <summary>
+        /// Calcula la ID que debe tener la proxima entidad a agregar
+        /// </summary>
+        /// <returns>Numero entero que representa el mejor ID disponible</returns>
         private int IdSetter()
         {
             int IdCount;
@@ -32,16 +36,18 @@ namespace USRepositories
 
             return IdCount;
         }
-        private Predicate<string> CharController(int Limit, bool Greather)
-        {
-            return t => Greather ? t.Length >= Limit : t.Length <= Limit;
-        }
 
-
+        /// <summary>
+        /// Metodo que agrega una entidad a la base de datos
+        /// </summary>
+        /// <param name="Username"></param>
+        /// <param name="Password"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception">Cuando se sobrepasa el limite de caracteres</exception>
         public bool AddToDB(string Username, string Password)
         {
-            Username = CharController(_context.UsernameCharLimits[0], false)(Username) || CharController(_context.UsernameCharLimits[1], true)(Username) ? throw new Exception($"Invalid {nameof(Username)}, the lenght must be between {_context.UsernameCharLimits[0]} and {_context.UsernameCharLimits[1]} characters") : Username;
-            Password = CharController(_context.PasswordCharLimits[0], false)(Password) || CharController(_context.PasswordCharLimits[1], true)(Password) ? throw new Exception($"Invalid {nameof(Password)}, the lenght must be between {_context.PasswordCharLimits[0]} and {_context.PasswordCharLimits[1]} characters") : Password;
+            Username = RepoInnerServices.CharController(_context.UsernameCharLimits[0], false)(Username) || RepoInnerServices.CharController(_context.UsernameCharLimits[1], true)(Username) ? throw new Exception($"Invalid {nameof(Username)}, the lenght must be between {_context.UsernameCharLimits[0]} and {_context.UsernameCharLimits[1]} characters") : Username;
+            Password = RepoInnerServices.CharController(_context.PasswordCharLimits[0], false)(Password) || RepoInnerServices.CharController(_context.PasswordCharLimits[1], true)(Password) ? throw new Exception($"Invalid {nameof(Password)}, the lenght must be between {_context.PasswordCharLimits[0]} and {_context.PasswordCharLimits[1]} characters") : Password;
 
             _context.Usuarios.Add(new User { ID = IdSetter(), Username = Username, Password = Password, Admin = false });
             return _context.SaveChanges() > 0;
@@ -83,8 +89,8 @@ namespace USRepositories
         {
             var user = _context.Usuarios.Find(User.ID) ?? throw new Exception("non-existent user");
 
-            Username = CharController(_context.UsernameCharLimits[0], false)(Username) || CharController(_context.UsernameCharLimits[1], true)(Username) ? throw new Exception($"Invalid {nameof(Username)}, the lenght must be between {_context.UsernameCharLimits[0]} and {_context.UsernameCharLimits[1]} characters") : Username;
-            Password = CharController(_context.PasswordCharLimits[0], false)(Password) || CharController(_context.PasswordCharLimits[1], true)(Password) ? throw new Exception($"Invalid {nameof(Password)}, the lenght must be between {_context.PasswordCharLimits[0]} and {_context.PasswordCharLimits[1]} characters") : Password;
+            Username = RepoInnerServices.CharController(_context.UsernameCharLimits[0], false)(Username) || RepoInnerServices.CharController(_context.UsernameCharLimits[1], true)(Username) ? throw new Exception($"Invalid {nameof(Username)}, the lenght must be between {_context.UsernameCharLimits[0]} and {_context.UsernameCharLimits[1]} characters") : Username;
+            Password = RepoInnerServices.CharController(_context.PasswordCharLimits[0], false)(Password) || RepoInnerServices.CharController(_context.PasswordCharLimits[1], true)(Password) ? throw new Exception($"Invalid {nameof(Password)}, the lenght must be between {_context.PasswordCharLimits[0]} and {_context.PasswordCharLimits[1]} characters") : Password;
 
             user.Username = Username; 
             user.Password = Password;

@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Dapper;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using USModel;
-using Microsoft.Data.SqlClient;
-using Dapper;
-using System.Dynamic;
 
 namespace USRepositories
 {
@@ -15,11 +16,15 @@ namespace USRepositories
         private string _conecctionString;
         private string _tablename;
         private SqlConnection? _conecction;
-        public Dapper_UserRepository(string ConecctionString, string TableName)
+        int[] UsernameCharLimits;
+        int[] PasswordCharLimits;
+        public Dapper_UserRepository(string ConecctionString, string TableName, int[] UserCharLimits, int[] PassCharLimits)
         {
             _tablename = TableName;
             _conecctionString = ConecctionString;
             _conecction = new SqlConnection(ConecctionString);
+            UsernameCharLimits = UserCharLimits;
+            PasswordCharLimits = PassCharLimits;
         }
 
         private int IdSetter()
@@ -37,11 +42,12 @@ namespace USRepositories
 
         public bool AddToDB(string Username, string Password)
         {
-            int ID = IdSetter();
+            Username = RepoInnerServices.CharController(UsernameCharLimits[0], false)(Username) || RepoInnerServices.CharController(UsernameCharLimits[1], true)(Username) ? throw new Exception($"Invalid {nameof(Username)}, the lenght must be between {UsernameCharLimits[0]} and {UsernameCharLimits[1]} characters") : Username;
+            Password = RepoInnerServices.CharController(PasswordCharLimits[0], false)(Password) || RepoInnerServices.CharController(PasswordCharLimits[1], true)(Password) ? throw new Exception($"Invalid {nameof(Password)}, the lenght must be between {PasswordCharLimits[0]} and {PasswordCharLimits[1]} characters") : Password;
 
             string query = $@"insert into {_tablename}(Username, Password, Id, Admin) values(@username, @password, @id, @admin)";
 
-            return _conecction!.Execute(query, new { username = Username, password = Password, id = ID, admin = 0 }) > 0; 
+            return _conecction!.Execute(query, new { username = Username, password = Password, id = IdSetter(), admin = 0 }) > 0; 
         }
 
         public bool ClearDB()
@@ -52,16 +58,12 @@ namespace USRepositories
 
         public bool Find(User User)
         {
-            string query = $@"select * from {_tablename} where Id = {User.ID}";
-            var list = _conecction!.Query<User>(query);
-            return list.Any();
+            return _conecction!.ExecuteScalar<int>($"SELECT COUNT(*) FROM {_tablename} where Id = {User.ID}") > 0;
         }
 
         public List<User> GetAll()
         {
-            string query = $@"select * from {_tablename}";
-            var list = _conecction!.Query<User>(query);
-            return list.ToList();
+            return _conecction!.Query<User>($@"select * from {_tablename}").ToList();
         }
 
         public bool RemoveFromDB(User User)
@@ -72,18 +74,19 @@ namespace USRepositories
 
         public User? Search(string Username)
         {
-            string query = $@"select * from {_tablename}";
-            return _conecction!.Query<User>(query).Where(i => i.Username == Username).FirstOrDefault();
+            return _conecction!.Query<User>($@"select * from {_tablename} where Username = '{Username}'").FirstOrDefault(); 
         }
 
         public User? Search(int ID)
         {
-            string query = $@"select * from {_tablename}";
-            return _conecction!.Query<User>(query).Where(i => i.ID == ID).FirstOrDefault();
+            return _conecction!.Query<User>($@"select * from {_tablename} where Id = {ID}").FirstOrDefault();
         }
 
         public bool UpdateFromDB(User User, string Username, string Password)
         {
+            Username = RepoInnerServices.CharController(UsernameCharLimits[0], false)(Username) || RepoInnerServices.CharController(UsernameCharLimits[1], true)(Username) ? throw new Exception($"Invalid {nameof(Username)}, the lenght must be between {UsernameCharLimits[0]} and {UsernameCharLimits[1]} characters") : Username;
+            Password = RepoInnerServices.CharController(PasswordCharLimits[0], false)(Password) || RepoInnerServices.CharController(PasswordCharLimits[1], true)(Password) ? throw new Exception($"Invalid {nameof(Password)}, the lenght must be between {PasswordCharLimits[0]} and {PasswordCharLimits[1]} characters") : Password;
+
             string query = $@"update {_tablename} set Username = '{Username}', Password = '{Password}' where Id = {User.ID}";
             return _conecction!.Execute(query) > 0;
         }

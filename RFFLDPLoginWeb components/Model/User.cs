@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace USModel
 {
+    /// <summary>
+    /// Represents the entity user in the database
+    /// </summary>
     public class User
     {
         private int _id;

@@ -1,4 +1,4 @@
-﻿namespace LoginWeb.InnerServices
+﻿namespace LoginWeb.Components
 {
     internal class LoginSecurityService
     {

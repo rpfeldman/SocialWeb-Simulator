@@ -1,5 +1,5 @@
 using LoginWeb.Components;
-using LoginWeb.InnerServices;
+using LoginWeb.InnerComponents;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.SqlServer;
@@ -10,6 +10,7 @@ using MSServices;
 using USRepositories;
 using USServices;
 using System.Reflection.Metadata.Ecma335;
+
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -27,13 +28,14 @@ var MessageContainerContextOptions = new DbContextOptionsBuilder<MessageContaine
 var MessageContainerContext = new MessageContainerDbContext(MessageContainerContextOptions, 150);
 
 
-builder.Services.AddSingleton<LoginSecurityService>(); // Servicio de seguridad de URL y logueo
+builder.Services.AddScoped<LoginSecurityService>(); // Servicio de seguridad de URL y logueo
+builder.Services.AddSingleton<GlobalPropertysService>(sp => { return new GlobalPropertysService(ConnectionString!, UsernameCharLimits, PasswordCharLimits); }); // Servicio para compartir las propiedades de appsettings.json
 
 
 // Dependencias del servicio de registro, incicio de sesion y manejo de usuario
 //builder.Services.AddSingleton<IUserDbRepo, EntityFramework_UserRepository>(sp => { return new EntityFramework_UserRepository(UserDBContext); });
 //builder.Services.AddSingleton<IUserDbRepo,Test_UserRepository>();
-builder.Services.AddScoped<IUserDbRepo, Dapper_UserRepository>(sp => { return new Dapper_UserRepository(ConnectionString, "Usuarios", UsernameCharLimits, PasswordCharLimits); });
+builder.Services.AddScoped<IUserDbRepo, Dapper_UserRepository>(sp => { return new Dapper_UserRepository(ConnectionString!, "Usuarios", UsernameCharLimits, PasswordCharLimits); });
 
 builder.Services.AddScoped<IMessageContainer<Message, int>, EF_MessageContainer>(sp => { return new EF_MessageContainer(MessageContainerContext); });
 
@@ -45,13 +47,7 @@ builder.Services.AddScoped<ViewProjectionService>();
 // Servicios que manejan el sistema de mensajeria
 builder.Services.AddScoped<MessageSenderService>();
 
-
-        
-
-
-
 var app = builder.Build();
-
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

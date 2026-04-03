@@ -10,7 +10,6 @@ namespace USRepositories
     public class Test_UserRepository : IUserDbRepo
     {
         private List<User> _UserList;
-        private int IdCount = 0;
 
         public Test_UserRepository()
         {
@@ -21,16 +20,13 @@ namespace USRepositories
         {
             try
             {
-                IdCount++;
-                
-                _UserList.Add(new User {ID = IdCount, Username = Username, Password = Password });
+                _UserList.Add(new User {ID = _UserList.Count+1, Username = Username, Password = Password });
 
                 return true;
             }
             catch (Exception)
             {
                 return false;
-                throw;
             }
         }
 
@@ -44,14 +40,12 @@ namespace USRepositories
             catch (Exception)
             {
                 return false;
-                throw;
             }
         }
 
         public bool Find(User User)
         {
-            Predicate<User> find = user => _UserList.Contains(user);
-            return find(User);
+            return _UserList.Contains(User);
         }
 
         public List<User> GetAll()
@@ -69,37 +63,30 @@ namespace USRepositories
             catch (Exception)
             {
                 return false;
-                throw;
             }
         }
 
         public User? Search(string Username)
         {
-            IEnumerable<User> user = from i in _UserList where i.Username == Username select i;
-            return user.FirstOrDefault();
+            return _UserList.Where(i => i.Username == Username).FirstOrDefault();
         }
         public User? Search(int ID)
         {
-            IEnumerable<User> user = from i in _UserList where i.ID == ID select i;
-            return user.FirstOrDefault();
+            return _UserList.Where(i => i.ID == ID).FirstOrDefault();
         }
 
         public bool UpdateFromDB(User User, string Username, string Password)
         {
             try
             {
-                string username = string.IsNullOrEmpty(Username) ? throw new ArgumentNullException(nameof(Username)) : Username;
-                string password = string.IsNullOrEmpty(Password) ? throw new ArgumentNullException(nameof(Password)) : Password;
-
                 _UserList.Remove(User);
-                _UserList.Add(new User { ID = User.ID, Username = username, Password = password });
+                _UserList.Add(new User { ID = User.ID, Username = Username, Password = Password });
 
                 return true;
             }
             catch (Exception)
             {
                 return false;
-                throw;
             }
         }
     }

@@ -2,6 +2,7 @@
 @rendermode InteractiveServer
 @inject NavigationManager navigationManager
 @inject UserRegistrationService URS
+@inject GlobalPropertysService GPS
 
 <PageTitle>Registro</PageTitle>
 
@@ -196,11 +197,11 @@
                         </div>
 
                         <div style="margin-bottom: 12px;">
-                            • El nombre de usuario no puede tener ni más de 30 caracteres ni menos de 5
+                            • El nombre de usuario no puede tener ni más de @GPS.UsernameCharLimits[1] caracteres ni menos de @GPS.UsernameCharLimits[0]
                         </div>
 
                         <div>
-                            • La contraseña no puede tener ni más de 60 caracteres ni menos de 5
+                            • La contraseña no puede tener ni más de @GPS.PasswordCharLimits[1] caracteres ni menos de @GPS.PasswordCharLimits[0]
                         </div>
                     </div>
                 </div>
