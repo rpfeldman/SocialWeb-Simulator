@@ -13,7 +13,6 @@ namespace USRepositories
 {
     public sealed class Dapper_UserRepository : IUserDbRepo
     {
-        private string _conecctionString;
         private string _tablename;
         private SqlConnection? _conecction;
         int[] UsernameCharLimits;
@@ -21,7 +20,6 @@ namespace USRepositories
         public Dapper_UserRepository(string ConecctionString, string TableName, int[] UserCharLimits, int[] PassCharLimits)
         {
             _tablename = TableName;
-            _conecctionString = ConecctionString;
             _conecction = new SqlConnection(ConecctionString);
             UsernameCharLimits = UserCharLimits;
             PasswordCharLimits = PassCharLimits;
