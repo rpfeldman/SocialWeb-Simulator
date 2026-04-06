@@ -9,3 +9,14 @@ C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSModel\obj\Debug\net10.0
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSModel\obj\Debug\net10.0\refint\MSModel.dll
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSModel\obj\Debug\net10.0\MSModel.pdb
 C:\Repos\SocialWeb simulator\RFFLDPLoginWeb components\MSModel\obj\Debug\net10.0\ref\MSModel.dll
+C:\Repos\SocialWeb simulator\components\MSModel\bin\Debug\net10.0\MSModel.deps.json
+C:\Repos\SocialWeb simulator\components\MSModel\bin\Debug\net10.0\MSModel.dll
+C:\Repos\SocialWeb simulator\components\MSModel\bin\Debug\net10.0\MSModel.pdb
+C:\Repos\SocialWeb simulator\components\MSModel\obj\Debug\net10.0\MSModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repos\SocialWeb simulator\components\MSModel\obj\Debug\net10.0\MSModel.AssemblyInfoInputs.cache
+C:\Repos\SocialWeb simulator\components\MSModel\obj\Debug\net10.0\MSModel.AssemblyInfo.cs
+C:\Repos\SocialWeb simulator\components\MSModel\obj\Debug\net10.0\MSModel.csproj.CoreCompileInputs.cache
+C:\Repos\SocialWeb simulator\components\MSModel\obj\Debug\net10.0\MSModel.dll
+C:\Repos\SocialWeb simulator\components\MSModel\obj\Debug\net10.0\refint\MSModel.dll
+C:\Repos\SocialWeb simulator\components\MSModel\obj\Debug\net10.0\MSModel.pdb
+C:\Repos\SocialWeb simulator\components\MSModel\obj\Debug\net10.0\ref\MSModel.dll

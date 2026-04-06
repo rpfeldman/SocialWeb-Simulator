@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Repos\\SocialWeb simulator\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Repos\\SocialWeb simulator\\Main blazor solution\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Main blazor solution\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Repos\\SocialWeb simulator\\Main blazor solution\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Main blazor solution\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Repos\\SocialWeb simulator\\components\\MSModel\\MSModel.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:components\\MSModel\\MSModel.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Repos\\SocialWeb simulator\\Main blazor solution\\LoginWeb.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Main blazor solution\\LoginWeb.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Repos\\SocialWeb simulator\\Main blazor solution\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Main blazor solution\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -31,12 +47,64 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Repos\\SocialWeb simulator\\Main blazor solution\\appsettings.json",
+              "RelativeDocumentMoniker": "Main blazor solution\\appsettings.json",
+              "ToolTip": "C:\\Repos\\SocialWeb simulator\\Main blazor solution\\appsettings.json",
+              "RelativeToolTip": "Main blazor solution\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-06T23:11:22.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "app.css",
+              "DocumentMoniker": "C:\\Repos\\SocialWeb simulator\\Main blazor solution\\wwwroot\\app.css",
+              "RelativeDocumentMoniker": "Main blazor solution\\wwwroot\\app.css",
+              "ToolTip": "C:\\Repos\\SocialWeb simulator\\Main blazor solution\\wwwroot\\app.css",
+              "RelativeToolTip": "Main blazor solution\\wwwroot\\app.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-04-06T23:11:16.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MSModel.csproj",
+              "DocumentMoniker": "C:\\Repos\\SocialWeb simulator\\components\\MSModel\\MSModel.csproj",
+              "RelativeDocumentMoniker": "components\\MSModel\\MSModel.csproj",
+              "ToolTip": "C:\\Repos\\SocialWeb simulator\\components\\MSModel\\MSModel.csproj",
+              "RelativeToolTip": "components\\MSModel\\MSModel.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-06T23:11:07.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginWeb.csproj",
+              "DocumentMoniker": "C:\\Repos\\SocialWeb simulator\\Main blazor solution\\LoginWeb.csproj",
+              "RelativeDocumentMoniker": "Main blazor solution\\LoginWeb.csproj",
+              "ToolTip": "C:\\Repos\\SocialWeb simulator\\Main blazor solution\\LoginWeb.csproj",
+              "RelativeToolTip": "Main blazor solution\\LoginWeb.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-06T23:10:49.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Repos\\SocialWeb simulator\\Main blazor solution\\Program.cs",
               "RelativeDocumentMoniker": "Main blazor solution\\Program.cs",
               "ToolTip": "C:\\Repos\\SocialWeb simulator\\Main blazor solution\\Program.cs",
               "RelativeToolTip": "Main blazor solution\\Program.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAABQAAABpAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABQAAABpAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-06T22:02:58.596Z",
               "EditorCaption": ""

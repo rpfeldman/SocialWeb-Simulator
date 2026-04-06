@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MSModel\MSModel.csproj" />
-    <ProjectReference Include="..\Repositories\USRepositories.csproj" />
   </ItemGroup>
 
 </Project>

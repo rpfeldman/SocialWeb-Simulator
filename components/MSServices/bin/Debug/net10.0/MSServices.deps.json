@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v10.0": {
       "MSServices/1.0.0": {
         "dependencies": {
-          "MSRepositories": "1.0.0"
+          "MSRepositories": "1.0.0",
+          "USModel": "1.0.0",
+          "USRepositories": "1.0.0"
         },
         "runtime": {
           "MSServices.dll": {}
@@ -447,8 +449,7 @@
       "MSRepositories/1.0.0": {
         "dependencies": {
           "MSModel": "1.0.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "10.0.5",
-          "USRepositories": "1.0.0"
+          "Microsoft.EntityFrameworkCore.SqlServer": "10.0.5"
         },
         "runtime": {
           "MSRepositories.dll": {

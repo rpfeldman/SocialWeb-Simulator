@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\MSModel\\MSModel.csproj": {}
+    "C:\\Repos\\SocialWeb simulator\\components\\MSModel\\MSModel.csproj": {}
   },
   "projects": {
-    "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\MSModel\\MSModel.csproj": {
+    "C:\\Repos\\SocialWeb simulator\\components\\MSModel\\MSModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\MSModel\\MSModel.csproj",
+        "projectUniqueName": "C:\\Repos\\SocialWeb simulator\\components\\MSModel\\MSModel.csproj",
         "projectName": "MSModel",
-        "projectPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\MSModel\\MSModel.csproj",
+        "projectPath": "C:\\Repos\\SocialWeb simulator\\components\\MSModel\\MSModel.csproj",
         "packagesPath": "C:\\Users\\ramga\\.nuget\\packages\\",
-        "outputPath": "C:\\Repos\\SocialWeb simulator\\RFFLDPLoginWeb components\\MSModel\\obj\\",
+        "outputPath": "C:\\Repos\\SocialWeb simulator\\components\\MSModel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\components",
+    "\\components\\MSModel",
     "\\Main blazor solution"
   ],
-  "SelectedNode": "\\Main blazor solution\\Program.cs",
+  "SelectedNode": "\\Main blazor solution\\appsettings.json",
   "PreviewInSolutionExplorer": false
 }

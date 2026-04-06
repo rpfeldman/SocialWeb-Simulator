@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MessageSystemRepositories\MSRepositories.csproj" />
+    <ProjectReference Include="..\MSRepositories\MSRepositories.csproj" />
+    <ProjectReference Include="..\USModel\USModel.csproj" />
+    <ProjectReference Include="..\USRepositories\USRepositories.csproj" />
   </ItemGroup>
 
 </Project>

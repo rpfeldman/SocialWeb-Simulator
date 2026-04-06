@@ -14,14 +14,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RFFLDPLoginWeb components\MessageSystemRepositories\MSRepositories.csproj" />
-    <ProjectReference Include="..\RFFLDPLoginWeb components\MSServices\MSServices.csproj" />
-    <ProjectReference Include="..\RFFLDPLoginWeb components\Services\USServices.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.5" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.5" />
+    <ProjectReference Include="..\components\MSRepositories\MSRepositories.csproj" />
+    <ProjectReference Include="..\components\MSServices\MSServices.csproj" />
+    <ProjectReference Include="..\components\USRepositories\USRepositories.csproj" />
+    <ProjectReference Include="..\components\USServices\USServices.csproj" />
   </ItemGroup>
 
 </Project>
