@@ -13,4 +13,6 @@
             PasswordCharLimits = passwordCharLimits;
         }
     }
+
+    internal enum UserDataBaseImplementation { Test, Dapper, Entity_framework }
 }

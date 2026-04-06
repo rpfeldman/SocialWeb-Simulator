@@ -21,6 +21,7 @@ builder.Services.AddRazorComponents()
 var ConnectionString = builder.Configuration.GetSection("DataBase").GetValue<string>("ConnectionString");
 int[] UsernameCharLimits = { builder.Configuration.GetSection("DataBase").GetValue<int>("UsernameMinCharLimit"), builder.Configuration.GetSection("DataBase").GetValue<int>("UsernameMaxCharLimit") };
 int[] PasswordCharLimits = { builder.Configuration.GetSection("DataBase").GetValue<int>("PasswordMinCharLimit"), builder.Configuration.GetSection("DataBase").GetValue<int>("PasswordMaxCharLimit") };
+var Implementation = builder.Configuration.GetSection("DataBase").GetValue<UserDataBaseImplementation>("Implementation");
 
 // Sets and configurates EF core DB Context for user system database
 var UserDBContextOptions = new DbContextOptionsBuilder<UserDbContext>().UseSqlServer(ConnectionString).Options;
@@ -34,16 +35,29 @@ var MessageContainerContext = new MessageContainerDbContext(MessageContainerCont
 builder.Services.AddScoped<LoginSecurityService>(); // URL and login security service
 builder.Services.AddSingleton<GlobalPropertysService>(sp => { return new GlobalPropertysService(ConnectionString!, UsernameCharLimits, PasswordCharLimits); }); // Service to share the properties from appsettings.json
 
-// I WILL DO SOMETHING ELSE WITH APPSETTINGS HERE
 // Dependencies for the registration, login and user-management services
-//builder.Services.AddSingleton<IUserDbRepo, EntityFramework_UserRepository>(sp => { return new EntityFramework_UserRepository(UserDBContext); });
-//builder.Services.AddSingleton<IUserDbRepo,Test_UserRepository>();
-builder.Services.AddScoped<IUserDbRepo, Dapper_UserRepository>(sp => { return new Dapper_UserRepository(ConnectionString!, "Usuarios", UsernameCharLimits, PasswordCharLimits); });
+switch (Implementation)
+{
+    case UserDataBaseImplementation.Test:
+        builder.Services.AddSingleton<IUserDbRepo, Test_UserRepository>();
+        break;
+
+    case UserDataBaseImplementation.Dapper:
+        builder.Services.AddScoped<IUserDbRepo, Dapper_UserRepository>(sp => { return new Dapper_UserRepository(ConnectionString!, "Usuarios", UsernameCharLimits, PasswordCharLimits); });
+        break;
+
+    case UserDataBaseImplementation.Entity_framework:
+        builder.Services.AddSingleton<IUserDbRepo, EntityFramework_UserRepository>(sp => { return new EntityFramework_UserRepository(UserDBContext); });
+        break;
+
+    default:
+        break; 
+}
 
 // Adds to blazor DI message container repository
 builder.Services.AddScoped<IMessageContainer<Message, int>, EF_MessageContainer>(sp => { return new EF_MessageContainer(MessageContainerContext); });
 
-// Servicios que manejan el registro, inicio de sesion y manejo de usuarios
+// Services that handle the user system: registration, authentication and projection
 builder.Services.AddScoped<UserAuthenticationService>();
 builder.Services.AddScoped<UserRegistrationService>();
 builder.Services.AddScoped<ViewProjectionService>();
