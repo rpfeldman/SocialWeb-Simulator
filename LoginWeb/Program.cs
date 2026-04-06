@@ -31,11 +31,11 @@ var MessageContainerContextOptions = new DbContextOptionsBuilder<MessageContaine
 var MessageContainerContext = new MessageContainerDbContext(MessageContainerContextOptions, 150);
 
 // Sets and configurates inner components services as URL security and global property DTO
-builder.Services.AddScoped<LoginSecurityService>(); // Servicio de seguridad de URL y logueo
-builder.Services.AddSingleton<GlobalPropertysService>(sp => { return new GlobalPropertysService(ConnectionString!, UsernameCharLimits, PasswordCharLimits); }); // Servicio para compartir las propiedades de appsettings.json
+builder.Services.AddScoped<LoginSecurityService>(); // URL and login security service
+builder.Services.AddSingleton<GlobalPropertysService>(sp => { return new GlobalPropertysService(ConnectionString!, UsernameCharLimits, PasswordCharLimits); }); // Service to share the properties from appsettings.json
 
-// ACA VOY A HACER OTRA COSA CON APPSETTIGNS, 
-// Dependencias del servicio de registro, incicio de sesion y manejo de usuario
+// I WILL DO SOMETHING ELSE WITH APPSETTINGS HERE
+// Dependencies for the registration, login and user-management services
 //builder.Services.AddSingleton<IUserDbRepo, EntityFramework_UserRepository>(sp => { return new EntityFramework_UserRepository(UserDBContext); });
 //builder.Services.AddSingleton<IUserDbRepo,Test_UserRepository>();
 builder.Services.AddScoped<IUserDbRepo, Dapper_UserRepository>(sp => { return new Dapper_UserRepository(ConnectionString!, "Usuarios", UsernameCharLimits, PasswordCharLimits); });
@@ -48,7 +48,7 @@ builder.Services.AddScoped<UserAuthenticationService>();
 builder.Services.AddScoped<UserRegistrationService>();
 builder.Services.AddScoped<ViewProjectionService>();
 
-// Servicios que manejan el sistema de mensajeria
+// Services that handle the messaging system
 builder.Services.AddScoped<MessageSenderService>();
 
 var app = builder.Build();

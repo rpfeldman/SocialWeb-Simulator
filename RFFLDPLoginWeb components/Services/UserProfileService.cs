@@ -8,6 +8,12 @@ using System.Threading.Tasks;
 
 namespace USServices
 {
+    /// <summary>
+    /// Service that manages an individual user's profile from the user's page.
+    ///
+    /// Provides operations to update or delete the current user's data by
+    /// coordinating with an <see cref="IUserDbRepo"/> implementation.
+    /// </summary>
     public sealed class UserProfileService : IDisposable
     {
         private int _UserId;

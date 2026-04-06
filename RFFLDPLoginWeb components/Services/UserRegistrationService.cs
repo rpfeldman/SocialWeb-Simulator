@@ -9,6 +9,12 @@ using USRepositories;
 
 namespace USServices
 {
+    /// <summary>
+    /// Service responsible for registering new users in the database.
+    ///
+    /// Provides validation and coordinates with an <see cref="IUserDbRepo"/>
+    /// to persist newly created user records.
+    /// </summary>
     public sealed class UserRegistrationService
     {
         private IUserDbRepo Repository;
