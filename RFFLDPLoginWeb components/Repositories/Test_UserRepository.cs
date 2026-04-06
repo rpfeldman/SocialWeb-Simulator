@@ -7,7 +7,7 @@ using USModel;
 
 namespace USRepositories
 {
-    public class Test_UserRepository : IUserDbRepo
+    public sealed class Test_UserRepository : IUserDbRepo
     {
         private List<User> _UserList;
 

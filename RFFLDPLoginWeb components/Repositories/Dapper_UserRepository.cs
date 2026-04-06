@@ -11,7 +11,7 @@ using USModel;
 
 namespace USRepositories
 {
-    public class Dapper_UserRepository : IUserDbRepo
+    public sealed class Dapper_UserRepository : IUserDbRepo
     {
         private string _conecctionString;
         private string _tablename;

@@ -7,7 +7,14 @@ using System.Text;
 
 namespace MSRepositories
 {
-    public class EF_MessageContainer : IMessageContainer<Message, int>
+    /// <summary>
+    /// Entity Framework implementation of a message repository for the <see cref="Message"/> entity.
+    ///
+    /// This class provides persistence operations over the database table represented by
+    /// <see cref="MessageContainerDbContext.MessageContainer"/> and implements the
+    /// <see cref="IMessageContainer{Message,int}"/> interface.
+    /// </summary>
+    public sealed class EF_MessageContainer : IMessageContainer<Message, int>
     {
         private MessageContainerDbContext _context;
         public EF_MessageContainer(MessageContainerDbContext context)

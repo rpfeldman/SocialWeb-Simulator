@@ -8,7 +8,13 @@ using USModel;
 
 namespace USServices
 {
-    public class ViewProjectionService 
+    /// <summary>
+    /// Projects repository data for presentation in the view layer.
+    ///
+    /// This service provides a read-only facade over <see cref="IUserDbRepo"/>,
+    /// exposing user data in a form suitable for UI consumption.
+    /// </summary>
+    public sealed class ViewProjectionService 
     {
         private IUserDbRepo Repository;
         public ViewProjectionService(IUserDbRepo repo) 

@@ -17,26 +17,30 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+// Get values configurated by appsettings.json
 var ConnectionString = builder.Configuration.GetSection("DataBase").GetValue<string>("ConnectionString");
 int[] UsernameCharLimits = { builder.Configuration.GetSection("DataBase").GetValue<int>("UsernameMinCharLimit"), builder.Configuration.GetSection("DataBase").GetValue<int>("UsernameMaxCharLimit") };
 int[] PasswordCharLimits = { builder.Configuration.GetSection("DataBase").GetValue<int>("PasswordMinCharLimit"), builder.Configuration.GetSection("DataBase").GetValue<int>("PasswordMaxCharLimit") };
 
+// Sets and configurates EF core DB Context for user system database
 var UserDBContextOptions = new DbContextOptionsBuilder<UserDbContext>().UseSqlServer(ConnectionString).Options;
 var UserDBContext = new UserDbContext(UserDBContextOptions, UsernameCharLimits, PasswordCharLimits);
 
+// Sets and configurates EF core DB context for message system database
 var MessageContainerContextOptions = new DbContextOptionsBuilder<MessageContainerDbContext>().UseSqlServer(ConnectionString).Options;
 var MessageContainerContext = new MessageContainerDbContext(MessageContainerContextOptions, 150);
 
-
+// Sets and configurates inner components services as URL security and global property DTO
 builder.Services.AddScoped<LoginSecurityService>(); // Servicio de seguridad de URL y logueo
 builder.Services.AddSingleton<GlobalPropertysService>(sp => { return new GlobalPropertysService(ConnectionString!, UsernameCharLimits, PasswordCharLimits); }); // Servicio para compartir las propiedades de appsettings.json
 
-
+// ACA VOY A HACER OTRA COSA CON APPSETTIGNS, 
 // Dependencias del servicio de registro, incicio de sesion y manejo de usuario
 //builder.Services.AddSingleton<IUserDbRepo, EntityFramework_UserRepository>(sp => { return new EntityFramework_UserRepository(UserDBContext); });
 //builder.Services.AddSingleton<IUserDbRepo,Test_UserRepository>();
 builder.Services.AddScoped<IUserDbRepo, Dapper_UserRepository>(sp => { return new Dapper_UserRepository(ConnectionString!, "Usuarios", UsernameCharLimits, PasswordCharLimits); });
 
+// Adds to blazor DI message container repository
 builder.Services.AddScoped<IMessageContainer<Message, int>, EF_MessageContainer>(sp => { return new EF_MessageContainer(MessageContainerContext); });
 
 // Servicios que manejan el registro, inicio de sesion y manejo de usuarios

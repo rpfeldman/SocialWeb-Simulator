@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace USServices
 {
-    public class UserProfileService : IDisposable
+    public sealed class UserProfileService : IDisposable
     {
         private int _UserId;
         private IUserDbRepo Repository;
@@ -17,7 +17,7 @@ namespace USServices
         {
             Repository = repo;
 
-            if (Repository.Search(UserID) != null) { _UserId = UserID; return; } // Comprueba que la id corresponda a un usuario real en la db
+            if (Repository.Search(UserID) != null) { _UserId = UserID; return; } // Checks that the ID corresponds to a real user in the database
             throw new Exception("UserId must be connected to a real existent user");
         }
         public bool Delete()
@@ -42,7 +42,7 @@ namespace USServices
                 _password = _password.Replace(' ', '_');
 
                 return Repository.UpdateFromDB(User!, _username, _password);
-            } // Se comprueba que el nuevo nombre de usuario no este en uso
+            } // Ensures the new username is not already in use
 
             throw new Exception("username must be one that is not already taken.");
         }

@@ -5,7 +5,11 @@ using System.Text;
 
 namespace MSModel
 {
-    public class Message
+    /// <summary>
+    /// Represents the persisted message entity in the database.
+    /// This class maps to the database table "MessageContainer" 
+    /// </summary>
+    public sealed class Message
     {
         private int _MessageId;
         private int _SenderId;

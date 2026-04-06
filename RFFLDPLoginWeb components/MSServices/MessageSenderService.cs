@@ -9,7 +9,7 @@ using System.Text;
 
 namespace MSServices
 {
-    public class MessageSenderService : IDisposable
+    public sealed class MessageSenderService : IDisposable
     {
         private IMessageContainer<Message, int> _container;
         private IUserDbRepo _UserRepo;

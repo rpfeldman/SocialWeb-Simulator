@@ -10,7 +10,7 @@ using System.Reflection.Metadata;
 
 namespace USRepositories
 {
-    public class EntityFramework_UserRepository : IUserDbRepo
+    public sealed class EntityFramework_UserRepository : IUserDbRepo
     {
         private UserDbContext _context;
 
@@ -20,9 +20,8 @@ namespace USRepositories
         }
 
         /// <summary>
-        /// Calcula la ID que debe tener la proxima entidad a agregar
+        /// Computes an integer ID to assign to a new <see cref="User"/>.
         /// </summary>
-        /// <returns>Numero entero que representa el mejor ID disponible</returns>
         private int IdSetter()
         {
             int IdCount;
@@ -37,13 +36,6 @@ namespace USRepositories
             return IdCount;
         }
 
-        /// <summary>
-        /// Metodo que agrega una entidad a la base de datos
-        /// </summary>
-        /// <param name="Username"></param>
-        /// <param name="Password"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception">Cuando se sobrepasa el limite de caracteres</exception>
         public bool AddToDB(string Username, string Password)
         {
             Username = RepoInnerServices.CharController(_context.UsernameCharLimits[0], false)(Username) || RepoInnerServices.CharController(_context.UsernameCharLimits[1], true)(Username) ? throw new Exception($"Invalid {nameof(Username)}, the lenght must be between {_context.UsernameCharLimits[0]} and {_context.UsernameCharLimits[1]} characters") : Username;

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MSServices
 {
-    public class UserMessagesService : IDisposable
+    public sealed class UserMessagesService : IDisposable
     {
         private IMessageContainer<Message, int> _container;
         private int _UserId;

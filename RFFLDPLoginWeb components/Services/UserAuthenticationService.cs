@@ -9,7 +9,7 @@ using USModel;
 
 namespace USServices
 {
-    public class UserAuthenticationService
+    public sealed class UserAuthenticationService
     {
         private IUserDbRepo Repository;
         public int UserId { get; private set; }
@@ -23,8 +23,8 @@ namespace USServices
             if (Repository.Search(Username) != null) 
             {
                 UserId = Repository.Search(Username)!.ID; 
-                return Repository.Search(Username)!.Password == Password; 
-            } // Comprueba que el usuario exista
+                return Repository.Search(Username)!.Password == Password;
+            } // Checks user exists and password matches
 
             return false;
         }

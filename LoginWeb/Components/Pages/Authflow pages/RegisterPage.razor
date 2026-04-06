@@ -318,7 +318,7 @@
 				return;
 			}
 
-			Result = URS.RegisterUser(username, password[0]) ? "Usuario registrado con exito" : "Error al registrar el usuario";
+			Result = URS.RegistUser(username, password[0]) ? "Usuario registrado con exito" : "Error al registrar el usuario";
 			username = password[0] = password[1] = string.Empty;
 
 			StateHasChanged();

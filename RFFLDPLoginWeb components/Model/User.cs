@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 namespace USModel
 {
     /// <summary>
-    /// Represents the entity user in the database
+    /// <summary>
+    /// Represents the persisted user entity in the database.
+    /// This type maps to a database table where the integer <see cref="ID"/> property is the primary key.
     /// </summary>
-    public class User
+    public sealed class User
     {
         private int _id;
         private string _username;
