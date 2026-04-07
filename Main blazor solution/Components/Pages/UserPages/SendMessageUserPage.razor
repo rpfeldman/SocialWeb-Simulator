@@ -6,7 +6,7 @@
 @inject ViewProjectionService VPS
 
 
-<PageTitle>Enviar mensaje</PageTitle>
+<PageTitle>Send message</PageTitle>
 
 <PageTitle>Enviar mensaje</PageTitle>
 
@@ -43,13 +43,13 @@
                 font-weight: bold;
                 margin-bottom: 6px;
                 ">
-                Enviar Mensaje
+                Send Message
             </div>
             <div style="
                 font-size: 15px;
                 opacity: 0.9;
                 ">
-                Escribí y enviá tu mensaje
+                Write and send your message
             </div>
         </div>
 
@@ -67,9 +67,9 @@
                     color: #1e293b;
                     margin-bottom: 8px;
                     ">
-                    Destinatario
+                    Recipient
                 </div>
-                <input type="text" placeholder="Nombre de usuario" @bind="ReceiverUser" style="
+                <input type="text" placeholder="Username" @bind="ReceiverUser" style="
                 width: 100%;
                 padding: 12px 16px;
                 border: 2px solid #e2e8f0;
@@ -94,9 +94,9 @@
                     color: #1e293b;
                     margin-bottom: 8px;
                     ">
-                    Mensaje
+                    Message
                 </div>
-                <input type="text" @bind="MessageText" placeholder="Escribí tu mensaje..." style="
+                <input type="text" @bind="MessageText" placeholder="Write your message..." style="
                 width: 100%;
                 padding: 12px 16px;
                 border: 2px solid #e2e8f0;
@@ -130,7 +130,7 @@
                     cursor: pointer;
                     box-shadow: 0 6px 14px rgba(74, 222, 128, 0.35);
                     ">
-                    Enviar
+                    Send
                 </button>
 
                 <button @onclick="Navigate" style="
@@ -145,7 +145,7 @@
                     cursor: pointer;
                     box-shadow: 0 6px 14px rgba(0,0,0,0.10);
                     ">
-                    Volver
+                    Back
                 </button>
 
             </div>
@@ -194,14 +194,14 @@
         {
             if (VPS.GetUser(ReceiverUser) == null)
             {
-                Result = "Usuario inexistente";
+                Result = "User does not exist";
                 StateHasChanged();
                 return;
             }
 
             int ReceiverId = VPS.GetUser(ReceiverUser)!.ID;
 
-            Result = MSS.Send(ID, ReceiverId, MessageText) ? "Mensaje enviado con exito!" : "Error inesperado al intentar enviar el mensaje";
+            Result = MSS.Send(ID, ReceiverId, MessageText) ? "Message sent successfully!" : "Unexpected error while attempting to send the message";
         }
         catch (Exception x)
         {

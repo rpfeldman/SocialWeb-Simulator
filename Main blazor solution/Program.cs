@@ -19,8 +19,11 @@ builder.Services.AddRazorComponents()
 
 // Get values configurated by appsettings.json
 var ConnectionString = builder.Configuration.GetSection("DataBase").GetValue<string>("ConnectionString");
+
+int MessageTextCharLimits = builder.Configuration.GetSection("DataBase").GetValue<int>("MessageTextCharLimit");
 int[] UsernameCharLimits = { builder.Configuration.GetSection("DataBase").GetValue<int>("UsernameMinCharLimit"), builder.Configuration.GetSection("DataBase").GetValue<int>("UsernameMaxCharLimit") };
 int[] PasswordCharLimits = { builder.Configuration.GetSection("DataBase").GetValue<int>("PasswordMinCharLimit"), builder.Configuration.GetSection("DataBase").GetValue<int>("PasswordMaxCharLimit") };
+
 var Implementation = builder.Configuration.GetSection("DataBase").GetValue<UserDataBaseImplementation>("Implementation");
 
 // Sets and configurates EF core DB Context for user system database
@@ -29,7 +32,7 @@ var UserDBContext = new UserDbContext(UserDBContextOptions, UsernameCharLimits, 
 
 // Sets and configurates EF core DB context for message system database
 var MessageContainerContextOptions = new DbContextOptionsBuilder<MessageContainerDbContext>().UseSqlServer(ConnectionString).Options;
-var MessageContainerContext = new MessageContainerDbContext(MessageContainerContextOptions, 150);
+var MessageContainerContext = new MessageContainerDbContext(MessageContainerContextOptions, MessageTextCharLimits);
 
 // Sets and configurates inner components services as URL security and global property DTO
 builder.Services.AddScoped<LoginSecurityService>(); // URL and login security service
@@ -43,7 +46,7 @@ switch (Implementation)
         break;
 
     case UserDataBaseImplementation.Dapper:
-        builder.Services.AddScoped<IUserDbRepo, Dapper_UserRepository>(sp => { return new Dapper_UserRepository(ConnectionString!, "Usuarios", UsernameCharLimits, PasswordCharLimits); });
+        builder.Services.AddScoped<IUserDbRepo, Dapper_UserRepository>(sp => { return new Dapper_UserRepository(ConnectionString!, "Users", UsernameCharLimits, PasswordCharLimits); });
         break;
 
     case UserDataBaseImplementation.Entity_framework:

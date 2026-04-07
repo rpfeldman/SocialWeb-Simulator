@@ -34,14 +34,14 @@
                 margin-bottom: 8px;
                 letter-spacing: 0.3px;
                 ">
-                Editar usuario
+                Edit user
             </div>
 
             <div style="
                 font-size: 15px;
                 opacity: 0.92;
                 ">
-                Deje en blanco las credenciales que quiera mantener igual
+                Leave blank any credentials you want to keep unchanged
             </div>
         </div>
 
@@ -72,10 +72,10 @@
                                 color: #1e293b;
                                 vertical-align: middle;
                                 ">
-                                Nombre de usuario:
+                                Username:
                             </td>
                             <td>
-                                <input placeholder="usuario" @bind="username" type="text" style="
+                                <input placeholder="username" @bind="username" type="text" style="
                                 width: 100%;
                                 padding: 14px 16px;
                                 border-radius: 12px;
@@ -90,7 +90,7 @@
                                     font-size: 11px;
                                     color: #64748b;
                                     ">
-                                    (dejar en blanco si desea mantener el nombre actual)
+                                    (leave blank to keep the current username)
                                 </div>
                             </td>
                         </tr>
@@ -109,10 +109,10 @@
                                 color: #1e293b;
                                 vertical-align: middle;
                                 ">
-                                Nueva contraseña:
+                                New password:
                             </td>
                             <td>
-                                <input placeholder="contraseña" @bind="password[0]" type="@PasswordView(ShowPassword[0])" style="
+                                <input placeholder="password" @bind="password[0]" type="@PasswordView(ShowPassword[0])" style="
                                 width: 100%;
                                 padding: 14px 16px;
                                 border-radius: 12px;
@@ -134,7 +134,7 @@
                                 margin-right: 6px;
                                 cursor: pointer;
                                 " />
-                                <span>(ver contraseña)</span>
+                                <span>show password</span>
                             </td>
                         </tr>
 
@@ -145,10 +145,10 @@
                                 color: #1e293b;
                                 vertical-align: middle;
                                 ">
-                                Repetir nueva contraseña:
+                                Repeat new password:
                             </td>
                             <td>
-                                <input placeholder="contraseña" @bind="password[1]" type="@PasswordView(ShowPassword[1])" style="
+                                <input placeholder="password" @bind="password[1]" type="@PasswordView(ShowPassword[1])" style="
                                 width: 100%;
                                 padding: 14px 16px;
                                 border-radius: 12px;
@@ -170,7 +170,7 @@
                                 margin-right: 6px;
                                 cursor: pointer;
                                 " />
-                                <span>(ver contraseña)</span>
+                                <span>(show password)</span>
                             </td>
                         </tr>
                     </table>
@@ -200,7 +200,7 @@
                                 cursor: pointer;
                                 box-shadow: 0 8px 18px rgba(37,99,235,0.35);
                                 ">
-                                Editar credenciales
+                                Edit credentials
                             </button>
                         </td>
                         <td>
@@ -215,7 +215,7 @@
                                 cursor: pointer;
                                 box-shadow: 0 6px 14px rgba(0,0,0,0.10);
                                 ">
-                                Volver
+                                Back
                             </button>
                         </td>
                     </tr>
@@ -285,11 +285,11 @@
         {
             if (password[0] != password[1])
             {
-                Result = "Las contraseñas no coinciden";
+                Result = "Passwords do not match";
                 return;
             }
 
-            Result = UPS!.Update(username, password[0]) ? "Credenciales editadas con exito, volviendo al menu de usuario..." : "Error al intentar editar las credenciales el usuario, volviendo al menu de usuario...";
+            Result = UPS!.Update(username, password[0]) ? "Credentials updated successfully, returning to the user menu..." : "Error updating user credentials, returning to the user menu...";
             username = password[0] = password[1] = string.Empty;
             StateHasChanged();
 

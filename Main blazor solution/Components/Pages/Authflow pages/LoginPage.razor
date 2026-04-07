@@ -4,7 +4,7 @@
 @inject UserAuthenticationService UAS
 @inject LoginSecurityService LSS
 
-<PageTitle>Inicio de sesion</PageTitle>
+<PageTitle>Login</PageTitle>
 
 <div style="
     min-height: 100vh;
@@ -36,14 +36,14 @@
                 margin-bottom: 8px;
                 letter-spacing: 0.3px;
                 ">
-                Bienvenido a la página de inicio de sesión
+                Welcome to the login page
             </div>
 
             <div style="
                 font-size: 15px;
                 opacity: 0.92;
                 ">
-                Ingresá tus credenciales para continuar
+                Enter your credentials to continue
             </div>
         </div>
 
@@ -70,11 +70,11 @@
                             color: #1e293b;
                             vertical-align: middle;
                             ">
-                            Nombre de usuario:
+                            Username:
                         </td>
 
                         <td>
-                            <input placeholder="usuario" @bind="username" type="text" style="
+                            <input placeholder="username" @bind="username" type="text" style="
                             width: 100%;
                             padding: 14px 16px;
                             border-radius: 12px;
@@ -94,11 +94,11 @@
                             color: #1e293b;
                             vertical-align: middle;
                             ">
-                            Contraseña:
+                            Password:
                         </td>
 
                         <td>
-                            <input placeholder="contraseña" @bind="password" type="@PasswordView(ShowPassword)" style="
+                            <input placeholder="password" @bind="password" type="@PasswordView(ShowPassword)" style="
                             width: 100%;
                             padding: 14px 16px;
                             border-radius: 12px;
@@ -121,7 +121,7 @@
                             margin-right: 6px;
                             cursor: pointer;
                             " />
-                            <span>(ver contraseña)</span>
+                            <span>(show password)</span>
                         </td>
                     </tr>
                 </table>
@@ -150,7 +150,7 @@
                                 cursor: pointer;
                                 box-shadow: 0 6px 14px rgba(0,0,0,0.10);
                                 ">
-                                Ir a registrarse
+                                Go to register
                             </button>
                         </td>
 
@@ -166,7 +166,7 @@
                                 cursor: pointer;
                                 box-shadow: 0 8px 18px rgba(37,99,235,0.35);
                                 ">
-                                Iniciar sesión
+                                Log in
                             </button>
                         </td>
 
@@ -182,7 +182,7 @@
                                 cursor: pointer;
                                 box-shadow: 0 6px 14px rgba(0,0,0,0.08);
                                 ">
-                                Volver
+                                Back
                             </button>
                         </td>
                     </tr>
@@ -231,7 +231,7 @@
 	{
 		try
 		{
-			if(!UAS.AuthenticateUser(username, password)){ result = "Usuario y/o contraseña incorrecto/a"; return; }
+            if(!UAS.AuthenticateUser(username, password)){ result = "Incorrect username and/or password"; return; }
 			LSS.AuthorizeLogin();
 			navigationManager.NavigateTo($"/User/{UAS.UserId}");
 		}

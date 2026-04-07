@@ -4,7 +4,7 @@
 @inject UserRegistrationService URS
 @inject GlobalPropertysService GPS
 
-<PageTitle>Registro</PageTitle>
+<PageTitle>Register</PageTitle>
 
 <div style="
     min-height: 100vh;
@@ -36,14 +36,14 @@
                 margin-bottom: 8px;
                 letter-spacing: 0.3px;
                 ">
-                Bienvenido a la página de registro
+                Welcome to the registration page
             </div>
 
             <div style="
                 font-size: 15px;
                 opacity: 0.92;
                 ">
-                Creá tu cuenta completando los siguientes datos
+                Create your account by completing the following fields
             </div>
         </div>
 
@@ -75,10 +75,10 @@
                                 color: #1e293b;
                                 vertical-align: middle;
                                 ">
-                                Nombre de usuario:
+                                Username:
                             </td>
                             <td>
-                                <input placeholder="usuario" @bind="username" type="text" style="
+                                <input placeholder="username" @bind="username" type="text" style="
                                 width: 100%;
                                 padding: 14px 16px;
                                 border-radius: 12px;
@@ -99,10 +99,10 @@
                                 color: #1e293b;
                                 vertical-align: middle;
                                 ">
-                                Contraseña:
+                                Password:
                             </td>
                             <td>
-                                <input placeholder="contraseña" @bind="password[0]" type="@PasswordView(ShowPassword[0])" style="
+                                <input placeholder="password" @bind="password[0]" type="@PasswordView(ShowPassword[0])" style="
                                 width: 100%;
                                 padding: 14px 16px;
                                 border-radius: 12px;
@@ -124,7 +124,7 @@
                                 margin-right: 6px;
                                 cursor: pointer;
                                 " />
-                                <span>(ver contraseña)</span>
+                                <span>(show password)</span>
                             </td>
                         </tr>
 
@@ -135,10 +135,10 @@
                                 color: #1e293b;
                                 vertical-align: middle;
                                 ">
-                                Repetir contraseña:
+                                Repeat password:
                             </td>
                             <td>
-                                <input placeholder="contraseña" @bind="password[1]" type="@PasswordView(ShowPassword[1])" style="
+                                <input placeholder="password" @bind="password[1]" type="@PasswordView(ShowPassword[1])" style="
                                 width: 100%;
                                 padding: 14px 16px;
                                 border-radius: 12px;
@@ -160,7 +160,7 @@
                                 margin-right: 6px;
                                 cursor: pointer;
                                 " />
-                                <span>(ver contraseña)</span>
+                                <span>(show password)</span>
                             </td>
                         </tr>
                     </table>
@@ -184,7 +184,7 @@
                         margin-bottom: 16px;
                         text-align: center;
                         ">
-                        Reglas
+                        Rules
                     </div>
 
                     <div style="
@@ -193,15 +193,15 @@
                         line-height: 1.7;
                         ">
                         <div style="margin-bottom: 12px;">
-                            • Ni el nombre de usuario ni la contraseña pueden ser nulos
+                            • Neither the username nor the password can be null
                         </div>
 
                         <div style="margin-bottom: 12px;">
-                            • El nombre de usuario no puede tener ni más de @GPS.UsernameCharLimits[1] caracteres ni menos de @GPS.UsernameCharLimits[0]
+                            • The username cannot have more than @GPS.UsernameCharLimits[1] characters or less than @GPS.UsernameCharLimits[0]
                         </div>
 
                         <div>
-                            • La contraseña no puede tener ni más de @GPS.PasswordCharLimits[1] caracteres ni menos de @GPS.PasswordCharLimits[0]
+                            • The password cannot have more than @GPS.PasswordCharLimits[1] characters or less than @GPS.PasswordCharLimits[0]
                         </div>
                     </div>
                 </div>
@@ -231,7 +231,7 @@
                                 box-shadow: 0 6px 14px rgba(0,0,0,0.10);
                                 transition: 0.2s;
                                 ">
-                                Ir a iniciar sesión
+                                Go to login
                             </button>
                         </td>
 
@@ -248,7 +248,7 @@
                                 box-shadow: 0 8px 18px rgba(37,99,235,0.35);
                                 transition: 0.2s;
                                 ">
-                                Registrarse
+                                Register
                             </button>
                         </td>
 
@@ -265,7 +265,7 @@
                                 box-shadow: 0 6px 14px rgba(0,0,0,0.08);
                                 transition: 0.2s;
                                 ">
-                                Volver
+                                Back
                             </button>
                         </td>
                     </tr>
@@ -312,13 +312,13 @@
 	{
 		try
 		{
-			if (password[0] != password[1])
-			{
-				Result = "Las contraseñas no coinciden";
-				return;
-			}
+            if (password[0] != password[1])
+            {
+                Result = "Passwords do not match";
+                return;
+            }
 
-			Result = URS.RegistUser(username, password[0]) ? "Usuario registrado con exito" : "Error al registrar el usuario";
+            Result = URS.RegistUser(username, password[0]) ? "User registered successfully" : "Error registering the user";
 			username = password[0] = password[1] = string.Empty;
 
 			StateHasChanged();

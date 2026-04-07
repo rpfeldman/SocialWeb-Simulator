@@ -38,14 +38,14 @@
                 margin-bottom: 8px;
                 letter-spacing: 0.3px;
                 ">
-                Eliminar perfil
+                Delete profile
             </div>
 
             <div style="
                 font-size: 15px;
                 opacity: 0.92;
                 ">
-                Acción crítica e irreversible
+                Critical and irreversible action
             </div>
         </div>
 
@@ -57,7 +57,7 @@
                 color: #b91c1c;
                 margin-bottom: 22px;
                 ">
-                USTED ESTÁ A PUNTO DE BORRAR SU PERFIL
+                YOU ARE ABOUT TO DELETE YOUR PROFILE
             </div>
 
             <div style="
@@ -72,7 +72,7 @@
                 line-height: 1.6;
                 box-sizing: border-box;
                 ">
-                Advertencia: esta decisión es permanente y una vez confirmada no se puede deshacer
+                Warning: this decision is permanent and once confirmed it cannot be undone
             </div>
 
             <div style="
@@ -81,7 +81,7 @@
                 font-weight: bold;
                 margin-bottom: 28px;
                 ">
-                ¿Desea continuar?
+                Do you want to continue?
             </div>
 
             <table style="
@@ -102,7 +102,7 @@
                             cursor: pointer;
                             box-shadow: 0 8px 18px rgba(239,68,68,0.35);
                             ">
-                            Sí, continuar
+                            Yes, continue
                         </button>
                     </td>
 
@@ -118,7 +118,7 @@
                             cursor: pointer;
                             box-shadow: 0 6px 14px rgba(0,0,0,0.10);
                             ">
-                            No, volver
+                            No, go back
                         </button>
                     </td>
                 </tr>
@@ -178,7 +178,7 @@
     void Delete()
     {
         UPS!.Delete();
-        Result = $"Adios, {name}\nCuenta eliminada correctamente!";
+        Result = $"Goodbye, {name}\nAccount successfully deleted!";
         StateHasChanged();
         UPS.Dispose();
         Navigate(true);

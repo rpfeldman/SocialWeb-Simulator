@@ -6,7 +6,7 @@
 @inject IMessageContainer<MSModel.Message, int> container
 @inject ViewProjectionService VPS
 
-<PageTitle>Bandeja</PageTitle>
+<PageTitle>Inbox</PageTitle>
 
 <div style="
     min-height: 100vh;
@@ -44,13 +44,13 @@
                 font-weight: bold;
                 margin-bottom: 6px;
                 ">
-                Bandeja de Entrada
+                Inbox
             </div>
             <div style="
                 font-size: 15px;
                 opacity: 0.9;
                 ">
-                Tienes @NewMessages() mensajes nuevos!
+                You have @NewMessages() new messages!
             </div>
         </div>
 
@@ -84,7 +84,7 @@
                 cursor: pointer;
                 box-shadow: 0 6px 14px rgba(37,99,235,0.35);
                 ">
-                Marcar todo como leido
+                Mark all as read
             </button>
 
             <button @onclick="Navigate" style="
@@ -99,7 +99,7 @@
                 cursor: pointer;
                 box-shadow: 0 6px 14px rgba(0,0,0,0.10);
                 ">
-                Volver!
+                Back!
             </button>
 
         </div>
@@ -147,7 +147,7 @@
         if (UMS!.GetUserMessages().Count < 1)
         {
             _builder.OpenElement(0, "div");
-            _builder.AddContent(1, "No hay mensajes para mostrar!");
+            _builder.AddContent(1, "There are no messages to display!");
             _builder.CloseElement();
             return;   
         };
