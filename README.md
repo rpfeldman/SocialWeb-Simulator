@@ -69,11 +69,14 @@ CREATE TABLE MessageContainer (
 
 - **Registration, authentication and management of users with persistence**
 ![Register screen](Screenshots/Register_screen_example.png)
+
 ![Login screen](Screenshots/Login_screen_example.png)
+
 ![User menu](Screenshots/User_menu_screen_example.png)
 
 - **Send and receive messages to/from other real users**
 ![Send message](Screenshots/Send_message_screen_example.png)
+
 ![User inbox](Screenshots/User_inbox_screen_example.png)
 
 ## Disclaimer
