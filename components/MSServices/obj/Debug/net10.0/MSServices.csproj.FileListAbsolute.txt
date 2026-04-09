@@ -61,3 +61,4 @@ C:\Repos\SocialWeb simulator\components\MSServices\bin\Debug\net10.0\USRepositor
 C:\Repos\SocialWeb simulator\components\MSServices\bin\Debug\net10.0\MSModel.pdb
 C:\Repos\SocialWeb simulator\components\MSServices\obj\Debug\net10.0\MSServices.csproj.Up2Date
 C:\Repos\SocialWeb simulator\components\MSServices\obj\Debug\net10.0\ref\MSServices.dll
+C:\Repos\SocialWeb simulator\components\MSServices\obj\Debug\net10.0\MSServices.sourcelink.json

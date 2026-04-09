@@ -42,23 +42,32 @@ builder.Services.AddSingleton<GlobalPropertysService>(sp => { return new GlobalP
 switch (Implementation)
 {
     case UserDataBaseImplementation.Test:
+
         builder.Services.AddSingleton<IUserDbRepo, Test_UserRepository>();
+        // Adds to blazor DI message container repository
+        builder.Services.AddSingleton<IMessageContainer<Message, int>, Test_MessageContainer>();
         break;
 
     case UserDataBaseImplementation.Dapper:
+
         builder.Services.AddScoped<IUserDbRepo, Dapper_UserRepository>(sp => { return new Dapper_UserRepository(ConnectionString!, "Users", UsernameCharLimits, PasswordCharLimits); });
+        // Adds to blazor DI message container repository
+        builder.Services.AddScoped<IMessageContainer<Message, int>, EF_MessageContainer>(sp => { return new EF_MessageContainer(MessageContainerContext); });
+
         break;
 
     case UserDataBaseImplementation.Entity_framework:
+
         builder.Services.AddSingleton<IUserDbRepo, EntityFramework_UserRepository>(sp => { return new EntityFramework_UserRepository(UserDBContext); });
+        // Adds to blazor DI message container repository
+        builder.Services.AddScoped<IMessageContainer<Message, int>, EF_MessageContainer>(sp => { return new EF_MessageContainer(MessageContainerContext); });
+
         break;
 
     default:
         break; 
 }
 
-// Adds to blazor DI message container repository
-builder.Services.AddScoped<IMessageContainer<Message, int>, EF_MessageContainer>(sp => { return new EF_MessageContainer(MessageContainerContext); });
 
 // Services that handle the user system: registration, authentication and projection
 builder.Services.AddScoped<UserAuthenticationService>();

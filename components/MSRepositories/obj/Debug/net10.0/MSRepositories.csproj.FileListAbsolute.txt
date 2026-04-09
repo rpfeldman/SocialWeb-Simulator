@@ -51,3 +51,4 @@ C:\Repos\SocialWeb simulator\components\MSRepositories\obj\Debug\net10.0\MSRepos
 C:\Repos\SocialWeb simulator\components\MSRepositories\obj\Debug\net10.0\refint\MSRepositories.dll
 C:\Repos\SocialWeb simulator\components\MSRepositories\obj\Debug\net10.0\MSRepositories.pdb
 C:\Repos\SocialWeb simulator\components\MSRepositories\obj\Debug\net10.0\ref\MSRepositories.dll
+C:\Repos\SocialWeb simulator\components\MSRepositories\obj\Debug\net10.0\MSRepositories.sourcelink.json

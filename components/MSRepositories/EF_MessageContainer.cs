@@ -24,9 +24,7 @@ namespace MSRepositories
 
         private int IdSetter()
         {
-            int IdCount;
-
-            IdCount = _context.MessageContainer.Count();
+            int IdCount = _context.MessageContainer.Count();
 
             while (Search(IdCount) != null)
             {
@@ -61,7 +59,7 @@ namespace MSRepositories
             try
             {
                 var message = _context.MessageContainer.Where(m => m.MessageId == MessageId).FirstOrDefault();
-                _context.MessageContainer.Remove(message ?? throw new Exception("non-existent message"));
+                _context.MessageContainer.Remove(message ?? throw new Exception("Non-existent message"));
                 _context.SaveChanges();
                 return true;
             }
