@@ -15,4 +15,6 @@
     }
 
     internal enum UserDataBaseImplementation { Test, Dapper, Entity_framework }
+
+    internal enum MessageDataBaseImplementation { Test, Entity_framework }
 }

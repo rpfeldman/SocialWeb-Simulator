@@ -24,7 +24,8 @@ int MessageTextCharLimits = builder.Configuration.GetSection("DataBase").GetValu
 int[] UsernameCharLimits = { builder.Configuration.GetSection("DataBase").GetValue<int>("UsernameMinCharLimit"), builder.Configuration.GetSection("DataBase").GetValue<int>("UsernameMaxCharLimit") };
 int[] PasswordCharLimits = { builder.Configuration.GetSection("DataBase").GetValue<int>("PasswordMinCharLimit"), builder.Configuration.GetSection("DataBase").GetValue<int>("PasswordMaxCharLimit") };
 
-var Implementation = builder.Configuration.GetSection("DataBase").GetValue<UserDataBaseImplementation>("Implementation");
+var USImplementation = builder.Configuration.GetSection("DataBase").GetValue<UserDataBaseImplementation>("UserSystemImplementation"); // Gets the implementation for the user system repo
+var MSImplementation = builder.Configuration.GetSection("DataBase").GetValue<MessageDataBaseImplementation>("MessageSystemImplementation"); // Gets the implementation for the message system repo
 
 // Sets and configurates EF core DB Context for user system database
 var UserDBContextOptions = new DbContextOptionsBuilder<UserDbContext>().UseSqlServer(ConnectionString).Options;
@@ -39,35 +40,36 @@ builder.Services.AddScoped<LoginSecurityService>(); // URL and login security se
 builder.Services.AddSingleton<GlobalPropertysService>(sp => { return new GlobalPropertysService(ConnectionString!, UsernameCharLimits, PasswordCharLimits); }); // Service to share the properties from appsettings.json
 
 // Dependencies for the registration, login and user-management services
-switch (Implementation)
+switch (USImplementation)
 {
     case UserDataBaseImplementation.Test:
-
         builder.Services.AddSingleton<IUserDbRepo, Test_UserRepository>();
-        // Adds to blazor DI message container repository
-        builder.Services.AddSingleton<IMessageContainer<Message, int>, Test_MessageContainer>();
         break;
 
     case UserDataBaseImplementation.Dapper:
-
         builder.Services.AddScoped<IUserDbRepo, Dapper_UserRepository>(sp => { return new Dapper_UserRepository(ConnectionString!, "Users", UsernameCharLimits, PasswordCharLimits); });
-        // Adds to blazor DI message container repository
-        builder.Services.AddScoped<IMessageContainer<Message, int>, EF_MessageContainer>(sp => { return new EF_MessageContainer(MessageContainerContext); });
-
         break;
 
     case UserDataBaseImplementation.Entity_framework:
-
         builder.Services.AddSingleton<IUserDbRepo, EntityFramework_UserRepository>(sp => { return new EntityFramework_UserRepository(UserDBContext); });
-        // Adds to blazor DI message container repository
-        builder.Services.AddScoped<IMessageContainer<Message, int>, EF_MessageContainer>(sp => { return new EF_MessageContainer(MessageContainerContext); });
-
         break;
 
     default:
         break; 
 }
+switch (MSImplementation)
+{
+    case MessageDataBaseImplementation.Test:
+        builder.Services.AddSingleton<IMessageContainer<Message, int>, Test_MessageContainer>();
+        break;
 
+    case MessageDataBaseImplementation.Entity_framework:
+        builder.Services.AddScoped<IMessageContainer<Message, int>, EF_MessageContainer>(sp => { return new EF_MessageContainer(MessageContainerContext); });
+        break;
+
+    default:
+        break;
+}
 
 // Services that handle the user system: registration, authentication and projection
 builder.Services.AddScoped<UserAuthenticationService>();
